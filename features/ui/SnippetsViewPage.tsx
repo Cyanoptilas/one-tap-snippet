@@ -222,7 +222,7 @@ function SnippetsViewPage({ snippets }: SnippetsViewPageProps) {
           position="relative"
           height="calc(100vh - 70px)"
         >
-          <VStack align={{ base: "center", lg: "start" }} height="100%">
+          <VStack align="center" height="100%">
             {/* ヘッダー表示エリア */}
             <Flex
               justifyContent="space-between"
