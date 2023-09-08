@@ -327,9 +327,8 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
             </VStack>
           </Box>
         ) : (
-          // プレビュー
+          // 詳細ビュー
           <>
-            {/* 応答結果表示欄 */}
             <Box
               bg="gray.100"
               p="4"

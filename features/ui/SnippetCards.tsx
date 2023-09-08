@@ -13,6 +13,9 @@ import { useLongPress } from "use-long-press";
 import { siteConfig } from "../configs/site";
 import { Snippet, useStates } from "./SnippetsViewPage";
 import { useRouter } from "next/router";
+import { FaRegClock, FaRedoAlt } from "react-icons/fa";
+import { GrUpdate } from "react-icons/gr";
+import { MdUpdate } from "react-icons/md";
 
 interface SnippetCardsProps {
   displayedSnippets: any;
@@ -61,6 +64,15 @@ function SnippetCards({ displayedSnippets }: SnippetCardsProps) {
     <SimpleGrid columns={columns} spacing={4} pb={20}>
       {displayedSnippets.map((snippet: Snippet, idx: number) => {
         const design = cardDesigns[idx % cardDesigns.length];
+        const tagsToShow = snippet.tags
+          .slice(0, 3)
+          .filter((tag: string, index: number, arr: string[]) => {
+            const accumulatedLength = arr
+              .slice(0, index + 1)
+              .reduce((acc: number, tag: string) => acc + tag.length, 0);
+            return accumulatedLength < 18;
+          });
+
         return (
           <Link
             key={snippet.id}
@@ -104,21 +116,50 @@ function SnippetCards({ displayedSnippets }: SnippetCardsProps) {
                   onChange={() => toggleSelected(snippet.id)}
                 />
               )}
-              <div>
+              <Box>
                 <Heading fontSize="xl" color={design.textColor}>
                   {snippet.function_name_jp || "タイトルなし"}
                 </Heading>
                 <Text mt={4} fontSize="sm" color={design.textColor}>
                   {snippet.function_description}
                 </Text>
-              </div>
-              <Flex justifyContent="space-between" mb={-2}>
-                <Text color={design.textColor}>
-                  更新日時: {new Date(snippet.updatedAt).toLocaleDateString()}
-                </Text>
-                <Box bg="gray.700" px={2} borderRadius="md" color="white">
-                  {snippet.used_program_language}
-                </Box>
+              </Box>
+              <Flex flexDirection="column" mb={-2}>
+                <Flex flexWrap="wrap" maxWidth="300px">
+                  {tagsToShow.map((tag: string, index: number) => (
+                    <Text
+                      key={index}
+                      color={design.textColor}
+                      fontSize="sm"
+                      mr={2}
+                    >
+                      #{tag}
+                    </Text>
+                  ))}
+                </Flex>
+                <Flex justifyContent="space-between" alignItems="center" mt={2}>
+                  <Flex alignItems="center">
+                    <FaRegClock color={design.textColor} size="0.8em" />
+                    <Text ml={2} color={design.textColor} fontSize="sm">
+                      {new Date(snippet.createdAt).toLocaleDateString()}
+                    </Text>
+                  </Flex>
+                  <Flex alignItems="center">
+                    <FaRedoAlt color={design.textColor} size="0.8em" />
+                    <Text ml={2} color={design.textColor} fontSize="sm">
+                      {new Date(snippet.updatedAt).toLocaleDateString()}
+                    </Text>
+                  </Flex>
+                  <Box
+                    bg="gray.700"
+                    px={2}
+                    borderRadius="md"
+                    color="white"
+                    fontSize="sm"
+                  >
+                    {snippet.used_program_language}
+                  </Box>
+                </Flex>
               </Flex>
             </Box>
           </Link>
