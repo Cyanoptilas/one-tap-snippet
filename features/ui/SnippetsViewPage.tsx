@@ -157,11 +157,10 @@ function SnippetsViewPage({ snippets }: SnippetsViewPageProps) {
   useEffect(() => {
     // 詳細ページでタグをクリックして遷移してきた場合にタグをセットする
     const tag = router.query.tag as string | undefined;
-    console.log("🚀 ~ file: SnippetsViewPage.tsx:160 ~ useEffect ~ tag:", tag)
     if (tag) {
       setSearchTag(tag);
-      console.log("🚀 ~ file: SnippetsViewPage.tsx:164 ~ useEffect ~ searchTag:", searchTag)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const deleteSelectedSnippets = async () => {

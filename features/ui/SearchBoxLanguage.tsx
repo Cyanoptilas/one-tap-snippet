@@ -11,7 +11,14 @@ function SearchBoxLanguage({
   setSearchLanguage,
 }: SearchBoxLanguageProps) {
   return (
-    <InputGroup size="md" maxWidth="220px" pr={4} mb={{ base: 4, md: 0 }}>
+    <InputGroup
+      size="md"
+      maxWidth="220px"
+      pr={0}
+      pb={2}
+      mr={2}
+      mb={{ base: 4, md: 0 }}
+    >
       <InputLeftElement pointerEvents="none">
         <SearchIcon color="gray.300" />
       </InputLeftElement>

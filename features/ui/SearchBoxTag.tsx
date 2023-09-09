@@ -1,5 +1,5 @@
-import { SearchIcon } from "@chakra-ui/icons";
-import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import { SearchIcon, CloseIcon } from "@chakra-ui/icons";
+import { Input, InputGroup, InputLeftElement, InputRightElement } from "@chakra-ui/react";
 
 interface SearchBoxTagProps {
   searchTag: string;
@@ -11,8 +11,9 @@ function SearchBoxTag({ searchTag, setSearchTag }: SearchBoxTagProps) {
     <InputGroup
       size="md"
       maxWidth="220px"
-      pr={{ base: 0, lg: 4 }}
+      pr={0}
       pb={2}
+      mr={2}
       mb={{ base: 4, md: 0 }}
     >
       <InputLeftElement pointerEvents="none">
@@ -22,7 +23,13 @@ function SearchBoxTag({ searchTag, setSearchTag }: SearchBoxTagProps) {
         placeholder="タグで検索"
         value={searchTag}
         onChange={(e) => setSearchTag(e.target.value)}
+        pr={{ base: "1.75rem", lg: "2.5rem" }}
       />
+      {searchTag && (
+        <InputRightElement>
+          <CloseIcon color="gray.300" cursor="pointer" onClick={() => setSearchTag("")} />
+        </InputRightElement>
+      )}
     </InputGroup>
   );
 }
