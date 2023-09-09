@@ -295,7 +295,7 @@ function SnippetsViewPage({ snippets }: SnippetsViewPageProps) {
               width="90%"
               mt={4}
               position="fixed"
-              bottom="3%"
+              bottom="2%"
             >
               <Button
                 onClick={() => setPage(page - 1)}

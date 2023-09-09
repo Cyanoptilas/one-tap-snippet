@@ -10,12 +10,9 @@ import {
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useLongPress } from "use-long-press";
-import { siteConfig } from "../configs/site";
 import { Snippet, useStates } from "./SnippetsViewPage";
 import { useRouter } from "next/router";
 import { FaRegClock, FaRedoAlt } from "react-icons/fa";
-import { GrUpdate } from "react-icons/gr";
-import { MdUpdate } from "react-icons/md";
 
 interface SnippetCardsProps {
   displayedSnippets: any;
@@ -28,7 +25,6 @@ function SnippetCards({ displayedSnippets }: SnippetCardsProps) {
   const isTopPage: boolean = router.pathname === "/";
 
   const columns = useBreakpointValue({ base: 1, md: 2, lg: 3 });
-  const cardDesigns = siteConfig.cardDesigns;
 
   const {
     isMultiSelectMode,
@@ -61,9 +57,15 @@ function SnippetCards({ displayedSnippets }: SnippetCardsProps) {
   });
 
   return (
-    <SimpleGrid columns={columns} spacing={4} pb={20}>
-      {displayedSnippets.map((snippet: Snippet, idx: number) => {
-        const design = cardDesigns[idx % cardDesigns.length];
+    <SimpleGrid columns={columns} spacing={4} pb={16}>
+      {displayedSnippets.map((snippet: Snippet) => {
+        const design = {
+          bg: "gray.50",
+          borderColor: "gray.200",
+          hoverShadow: "xl",
+          textColor: "gray.700",
+        };
+
         const tagsToShow = snippet.tags
           .slice(0, 3)
           .filter((tag: string, index: number, arr: string[]) => {
@@ -88,7 +90,7 @@ function SnippetCards({ displayedSnippets }: SnippetCardsProps) {
               key={snippet.id}
               position="relative"
               height="24vh"
-              minHeight="160px"
+              minHeight="150px"
               maxWidth="360px"
               p={5}
               shadow="md"
@@ -99,9 +101,9 @@ function SnippetCards({ displayedSnippets }: SnippetCardsProps) {
               display="flex"
               flexDirection="column"
               justifyContent="space-between"
-              transition="transform 0.2s, background-color 0.3s"
+              transition="transform 0.2s, box-shadow 0.3s"
               _hover={{
-                transform: "translate(-5px, -5px)",
+                transform: "translateY(-5px)",
                 boxShadow: design.hoverShadow,
               }}
               onMouseDown={() => handleMouseDown(snippet.id)}
@@ -139,13 +141,13 @@ function SnippetCards({ displayedSnippets }: SnippetCardsProps) {
                 </Flex>
                 <Flex justifyContent="space-between" alignItems="center" mt={2}>
                   <Flex alignItems="center">
-                    <FaRegClock color={design.textColor} size="0.8em" />
+                    <FaRegClock color={design.bg} size="0.8em" />
                     <Text ml={2} color={design.textColor} fontSize="sm">
                       {new Date(snippet.createdAt).toLocaleDateString()}
                     </Text>
                   </Flex>
                   <Flex alignItems="center">
-                    <FaRedoAlt color={design.textColor} size="0.8em" />
+                    <FaRedoAlt color={design.bg} size="0.8em" />
                     <Text ml={2} color={design.textColor} fontSize="sm">
                       {new Date(snippet.updatedAt).toLocaleDateString()}
                     </Text>
