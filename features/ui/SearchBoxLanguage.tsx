@@ -1,5 +1,10 @@
-import { SearchIcon } from "@chakra-ui/icons";
-import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import { CloseIcon, SearchIcon } from "@chakra-ui/icons";
+import {
+  Input,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
+} from "@chakra-ui/react";
 
 interface SearchBoxLanguageProps {
   searchLanguage: string;
@@ -27,6 +32,15 @@ function SearchBoxLanguage({
         onChange={(e) => setSearchLanguage(e.target.value)}
         placeholder="言語で検索"
       />
+      {searchLanguage && (
+        <InputRightElement>
+          <CloseIcon
+            color="gray.300"
+            cursor="pointer"
+            onClick={() => setSearchLanguage("")}
+          />
+        </InputRightElement>
+      )}
     </InputGroup>
   );
 }
