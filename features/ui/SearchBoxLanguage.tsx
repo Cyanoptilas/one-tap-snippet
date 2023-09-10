@@ -20,7 +20,7 @@ function SearchBoxLanguage({
       size="md"
       maxWidth="220px"
       pr={0}
-      pb={2}
+      pb={{ base: 4, md: 0 }}
       mr={2}
       mb={{ base: 4, md: 0 }}
     >
