@@ -141,27 +141,12 @@ function SnippetsViewPage({ snippets }: SnippetsViewPageProps) {
   };
 
   useEffect(() => {
-    // ページ更新時
-    const handleRouteChange = () => {
-      setSearchLanguage(""); // 言語の検索ボックスをクリア
-      setSearchTag(""); // タグの検索ボックスをクリア
-    };
-
-    router.events.on("routeChangeComplete", handleRouteChange);
-
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, [router]);
-
-  useEffect(() => {
     // 詳細ページでタグをクリックして遷移してきた場合にタグをセットする
     const tag = router.query.tag as string | undefined;
     if (tag) {
       setSearchTag(tag);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [router.query.tag]);
 
   const deleteSelectedSnippets = async () => {
     try {
