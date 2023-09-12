@@ -40,8 +40,9 @@ model User {
   emailVerified DateTime?
   image         String?
   accounts      Account[]
-  CodeSnippet   CodeSnippet[]
+  snippets      CodeSnippet[]
   sessions      Session[]
+  favorites     FavoriteSnippet[]
 }
 
 model VerificationToken {
@@ -64,4 +65,16 @@ model CodeSnippet {
   updatedAt             DateTime @updatedAt
   authorId              String?
   author                User?    @relation(fields: [authorId], references: [id])
+  favorites             FavoriteSnippet[]
+}
+
+model FavoriteSnippet {
+  userId      String
+  snippetId   String
+  createdAt   DateTime   @default(now())
+
+  user        User       @relation(fields: [userId], references: [id])
+  snippet     CodeSnippet @relation(fields: [snippetId], references: [id])
+
+  @@id([userId, snippetId])
 }

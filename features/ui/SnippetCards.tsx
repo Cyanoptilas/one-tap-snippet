@@ -12,7 +12,9 @@ import Link from "next/link";
 import { useLongPress } from "use-long-press";
 import { Snippet, useStates } from "./SnippetsViewPage";
 import { useRouter } from "next/router";
-import { FaRegClock, FaRedoAlt } from "react-icons/fa";
+import { FaRegClock, FaRedoAlt, FaHeart } from "react-icons/fa";
+import { useRef, useState } from "react";
+import CustomDialog from "./CustomDialog";
 
 interface SnippetCardsProps {
   displayedSnippets: any;
@@ -21,9 +23,9 @@ interface SnippetCardsProps {
 function SnippetCards({ displayedSnippets }: SnippetCardsProps) {
   const router = useRouter();
   const { data: session } = useSession();
+  const [favorites, setFavorites] = useState<string[]>([]);
 
   const isTopPage: boolean = router.pathname === "/";
-
   const columns = useBreakpointValue({ base: 1, md: 2, lg: 3 });
 
   const {
@@ -32,6 +34,10 @@ function SnippetCards({ displayedSnippets }: SnippetCardsProps) {
     selectedIds,
     setSelectedIds,
   } = useStates();
+
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [dialogMessage, setDialogMessage] = useState("");
+  const cancelRef = useRef(null);
 
   const toggleSelected = (id: string) => {
     setSelectedIds((prev) =>
@@ -55,6 +61,36 @@ function SnippetCards({ displayedSnippets }: SnippetCardsProps) {
     }
     setIsMultiSelectMode(true);
   });
+
+  const toggleFavorite = async (id: string) => {
+    if (session) {
+      try {
+        // お気に入り登録・削除処理
+        const response = await fetch(`/api/favorite/toggle`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userEmail: session!.user!.email,
+            snippetId: id,
+          }),
+        });
+
+        const result = await response.json();
+
+        if (result && result.updatedFavorites) {
+          setFavorites(result.updatedFavorites);
+        } else {
+          setDialogMessage("API response does not contain updatedFavorites");
+          setIsDialogOpen(true);
+        }
+      } catch (error: unknown) {
+        setDialogMessage("お気に入りのトグルに失敗しました: " + String(error));
+        setIsDialogOpen(true);
+      }
+    }
+  };
 
   return (
     <SimpleGrid columns={columns} spacing={4} pb={16}>
@@ -118,6 +154,31 @@ function SnippetCards({ displayedSnippets }: SnippetCardsProps) {
                   onChange={() => toggleSelected(snippet.id)}
                 />
               )}
+              {!isMultiSelectMode && (
+                <Box
+                  position="absolute"
+                  top={2}
+                  right={2}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toggleFavorite(snippet.id);
+                  }}
+                >
+                  {session && (
+                    <FaHeart
+                      color={
+                        favorites &&
+                        Array.isArray(favorites) &&
+                        favorites.includes(snippet.id)
+                          ? "red"
+                          : "gray"
+                      }
+                      size="1.5em"
+                    />
+                  )}
+                  {isMultiSelectMode && "true"}
+                </Box>
+              )}
               <Box>
                 <Heading fontSize="xl" color={design.textColor}>
                   {snippet.function_name_jp || "タイトルなし"}
@@ -163,6 +224,14 @@ function SnippetCards({ displayedSnippets }: SnippetCardsProps) {
                   </Box>
                 </Flex>
               </Flex>
+              <CustomDialog
+                isOpen={isDialogOpen}
+                onClose={() => setIsDialogOpen(false)}
+                isError={true}
+                cancelRef={cancelRef}
+                dialogTitle="エラー"
+                dialogMessage={dialogMessage}
+              />
             </Box>
           </Link>
         );
