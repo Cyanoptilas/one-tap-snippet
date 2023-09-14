@@ -35,6 +35,11 @@ export const siteConfig: siteConfig = {
     },
     {
       id: "2",
+      title: "My Favorites",
+      href: "/myfavorites",
+    },
+    {
+      id: "3",
       title: "Sign Out",
       href: "/",
     },
