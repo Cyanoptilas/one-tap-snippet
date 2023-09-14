@@ -27,6 +27,7 @@ import { useRouter } from "next/router";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import MarkdownDisplay from "@/features/ui/MarkdownDisplay";
 import Loading from "@/features/ui/Loading";
+import { useSession } from "next-auth/react";
 
 export interface SnippetDetailData {
   id: string;
@@ -39,6 +40,7 @@ export interface SnippetDetailData {
   markdownCode: string;
   createdAt?: string;
   updatedAt?: string;
+  author?: { name: string; email: string };
   authorId?: string;
 }
 
@@ -52,6 +54,7 @@ type UpdatedData = {
 
 function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
   const router = useRouter();
+  const { data: session } = useSession();
 
   const [data, setData] = useState<SnippetDetailData | null>(snippet);
   const [originalData, setOriginalData] = useState<SnippetDetailData | null>(
@@ -70,6 +73,8 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
   const tagInputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   const columns = useBreakpointValue({ base: 1, sm: 2, md: 3 }) || 1;
+
+  const authorName = data?.author?.name ?? "NoName";
 
   useEffect(() => {
     if (isTagAdded) {
@@ -213,11 +218,16 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
         borderWidth="1px"
         borderColor="gray.200"
       >
-        <Flex justifyContent="space-between" alignItems="center" mb="4">
-          <Heading as="h1" size="lg">
-            コードサマリー
-          </Heading>
-          {!isEditing && <Button onClick={handleEditClick}>修正</Button>}
+        <Flex justifyContent="space-between" alignItems="flex-start" mb="4">
+          <VStack alignItems="start">
+            <Heading as="h1" size="lg">
+              コードサマリー
+            </Heading>
+            <Text fontSize="sm">Created By: {authorName}</Text>
+          </VStack>
+          {!isEditing && session?.user?.email === data!.author!.email && (
+            <Button onClick={handleEditClick}>修正</Button>
+          )}
         </Flex>
 
         {isEditing ? (

@@ -14,7 +14,15 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     where: {
       id: params.id,
     },
-  })!;
+    include: {
+      author: {
+        select: {
+          name: true,
+          email: true,
+        },
+      },
+    },
+  });
 
   const snippet = {
     ...snippetData,

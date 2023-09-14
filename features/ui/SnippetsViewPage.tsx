@@ -31,7 +31,7 @@ import {
 import SortMenu from "@/features/ui/SortMenu";
 import SearchBoxTag from "@/features/ui/SearchBoxTag";
 import RadioGroupOrder from "@/features/ui/RadioGroupOrder";
-import SnippetCards from "@/features/ui/SnippetCards";
+import SnippetCards, { SnippetCardsProps } from "@/features/ui/SnippetCards";
 import SearchBoxLanguage from "@/features/ui/SearchBoxLanguage";
 
 interface StatesContextProps {
@@ -67,9 +67,11 @@ export interface Snippet {
 
 interface SnippetsViewPageProps {
   snippets: Snippet[];
+  favoriteSnippetIds: string[];
 }
 
-function SnippetsViewPage({ snippets }: SnippetsViewPageProps) {
+function SnippetsViewPage(props: SnippetsViewPageProps) {
+  const { snippets, favoriteSnippetIds } = props;
   const router = useRouter();
   const { data: session } = useSession();
   const isTopPage: boolean = router.pathname === "/";
@@ -255,7 +257,7 @@ function SnippetsViewPage({ snippets }: SnippetsViewPageProps) {
                     setPage={setPage}
                   />
 
-                  {session && (
+                  {session && session.user?.email && (
                     <Link href="/register">
                       <IconButton
                         icon={<AddIcon />}
@@ -270,7 +272,10 @@ function SnippetsViewPage({ snippets }: SnippetsViewPageProps) {
             </Flex>
 
             {/* カード表示エリア */}
-            <SnippetCards displayedSnippets={displayedSnippets} />
+            <SnippetCards
+              displayedSnippets={displayedSnippets}
+              favoriteSnippetIds={favoriteSnippetIds}
+            />
 
             {/* 下部ボタンエリア */}
             <Flex

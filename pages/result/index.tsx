@@ -4,12 +4,13 @@ import Layout from "@/features/ui/Layout";
 import Loading from "@/features/ui/Loading";
 import DetailPage, { SnippetDetailData } from "@/features/ui/DetailPage";
 import { useDisclosure } from "@chakra-ui/react";
+import { useSession } from "next-auth/react";
 
 const CodeSnippetResult = () => {
   const router = useRouter();
+  const { data: session } = useSession();
 
   const [data, setData] = useState<SnippetDetailData | null>(null);
-
   const { isOpen, onClose } = useDisclosure();
 
   useEffect(() => {
@@ -21,6 +22,10 @@ const CodeSnippetResult = () => {
 
       setData({
         ...parsedData,
+        author: {
+          name: session!.user!.name ?? "NoName",
+          email: session!.user!.email!,
+        },
         markdownCode:
           `\`\`\`${parsedData.used_program_language!.toLowerCase()}\n` +
           parsedData.code +
@@ -33,7 +38,6 @@ const CodeSnippetResult = () => {
     return <Loading isOpen={isOpen} onClose={onClose} />;
   }
 
-  console.log("🚀 ~ file: index.tsx:79 ~ CodeSnippetResult ~ data:", data);
   return (
     <Layout>
       <DetailPage snippet={data} />

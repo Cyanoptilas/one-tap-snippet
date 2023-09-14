@@ -13,17 +13,19 @@ import { useLongPress } from "use-long-press";
 import { Snippet, useStates } from "./SnippetsViewPage";
 import { useRouter } from "next/router";
 import { FaRegClock, FaRedoAlt, FaHeart } from "react-icons/fa";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CustomDialog from "./CustomDialog";
 
-interface SnippetCardsProps {
-  displayedSnippets: any;
+export interface SnippetCardsProps {
+  displayedSnippets: Snippet[];
+  favoriteSnippetIds: string[];
 }
 
-function SnippetCards({ displayedSnippets }: SnippetCardsProps) {
+function SnippetCards(props: SnippetCardsProps) {
+  const { displayedSnippets, favoriteSnippetIds } = props;
   const router = useRouter();
   const { data: session } = useSession();
-  const [favorites, setFavorites] = useState<string[]>([]);
+  const [favorites, setFavorites] = useState<string[]>(favoriteSnippetIds);
 
   const isTopPage: boolean = router.pathname === "/";
   const columns = useBreakpointValue({ base: 1, md: 2, lg: 3 });
@@ -38,6 +40,8 @@ function SnippetCards({ displayedSnippets }: SnippetCardsProps) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [dialogMessage, setDialogMessage] = useState("");
   const cancelRef = useRef(null);
+
+  useEffect(() => {}, []);
 
   const toggleSelected = (id: string) => {
     setSelectedIds((prev) =>

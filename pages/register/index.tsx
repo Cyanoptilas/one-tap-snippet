@@ -19,8 +19,10 @@ import "highlight.js/styles/vs2015.css";
 import { useRouter } from "next/router";
 import React, { ChangeEvent, KeyboardEvent } from "react";
 import Layout from "@/features/ui/Layout";
+import { useSession } from "next-auth/react";
 
 const Home = () => {
+  const { data: session } = useSession();
   const [snippet, setSnippet] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
@@ -86,6 +88,7 @@ const Home = () => {
             ...(answer.used_frameworks || []),
             ...(answer.used_techs || []),
           ],
+          author: { name: session?.user?.name, email: session?.user?.email },
         }),
       });
 

@@ -24,22 +24,39 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       },
     },
   });
-
   const snippets = tempSnippets.map((tempSnippet: any) => ({
     ...tempSnippet,
     createdAt: tempSnippet.createdAt.toString(),
     updatedAt: tempSnippet.updatedAt.toString(),
   }));
 
+  const favoritesData = await prisma.favoriteSnippet.findMany({
+    select: {
+      snippetId: true,
+    },
+    where: {
+      user: {
+        email: session?.user?.email,
+      },
+    },
+  });
+  const favoriteSnippetIds: string[] = favoritesData.map((favoriteData) => {
+    return favoriteData.snippetId;
+  });
+
   return {
     props: {
       snippets,
+      favoriteSnippetIds,
     },
   };
 }
 
-function MySnippets({ snippets }: { snippets: Snippet[] }) {
-  return <SnippetsViewPage snippets={snippets} />;
+function MySnippets(props: {
+  snippets: Snippet[];
+  favoriteSnippetIds: string[];
+}) {
+  return <SnippetsViewPage {...props} />;
 }
 
 export default MySnippets;
