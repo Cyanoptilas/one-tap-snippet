@@ -86,8 +86,16 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
   const toast = useToast();
   const isSmallScreen = useBreakpointValue({ base: true, md: false });
   const cardsPerPage = useBreakpointValue({ base: 5, md: 8, lg: 9 }) || 5;
+  const [breakpoint, setBreakpoint] = useState(cardsPerPage);
   const [searchLanguage, setSearchLanguage] = useState("");
   const [searchTag, setSearchTag] = useState("");
+
+  useEffect(() => {
+    if (breakpoint !== cardsPerPage) {
+      setBreakpoint(cardsPerPage);
+      setPage(0);
+    }
+  }, [cardsPerPage]);
 
   const sortedSnippets = localSnippets.sort((a, b) => {
     let comparison = 0;
@@ -203,14 +211,9 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
   return (
     <Layout>
       <StatesContext.Provider value={ContextProps}>
-        <Container
-          maxW="6xl"
-          pt={2}
-          position="relative"
-          height="calc(100vh - 70px)"
-        >
-          <VStack align="center" height="100%">
-            {/* ヘッダー表示エリア */}
+        <Container maxW="6xl" pt={2} position="relative">
+          <VStack align="center" minHeight="100vh">
+            {/* 上部操作系表示エリア */}
             <Flex
               justifyContent="space-between"
               width="100%"
@@ -248,6 +251,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
                   alignItems="center"
                   justifyContent={{ base: "flex-end", lg: "flex-start" }}
                   width={{ base: "100%", lg: "auto" }}
+                  mt={{ md: 2, lg: 0 }}
                 >
                   <RadioGroupOrder order={order} setOrder={setOrder} />
                   <SortMenu
@@ -283,7 +287,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
               justifyContent="center"
               alignItems="center"
               width="90%"
-              mt={2}
+              my={2}
             >
               <Button
                 onClick={() => setPage(page - 1)}
