@@ -3,6 +3,7 @@ import Header from "./Header";
 import { useSession } from "next-auth/react";
 import Loading from "./Loading";
 import { Box, useDisclosure } from "@chakra-ui/react";
+import Footer from "./Footer";
 
 type Props = {
   children: ReactNode;
@@ -23,6 +24,7 @@ const Layout: React.FC<Props> = (props) => {
     <>
       <Header />
       <Box>{props.children}</Box>
+      <Footer />
     </>
   );
 };

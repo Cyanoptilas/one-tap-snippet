@@ -97,7 +97,7 @@ function SnippetCards(props: SnippetCardsProps) {
   };
 
   return (
-    <SimpleGrid columns={columns} spacing={4} pb={16}>
+    <SimpleGrid columns={columns} spacing={4}>
       {displayedSnippets.map((snippet: Snippet) => {
         const design = {
           bg: "gray.50",

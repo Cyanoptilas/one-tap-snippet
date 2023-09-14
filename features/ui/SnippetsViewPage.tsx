@@ -283,9 +283,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
               justifyContent="center"
               alignItems="center"
               width="90%"
-              mt={4}
-              position="fixed"
-              bottom="2%"
+              mt={2}
             >
               <Button
                 onClick={() => setPage(page - 1)}
