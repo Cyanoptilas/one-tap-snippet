@@ -28,7 +28,6 @@ export default async function handle(
       await prisma.user.delete({ where: { email } });
       res.status(200).json({ message: "User deleted successfully" });
     } catch (error) {
-      console.log("🚀 ~ file: index.ts:31 ~ error:", error)
       res.status(500).json({ error: "Failed to delete the user." });
     }
   } else {

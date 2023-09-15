@@ -225,9 +225,11 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
             </Heading>
             <Text fontSize="sm">Created By: {authorName}</Text>
           </VStack>
-          {!isEditing && session?.user?.email === data!.author!.email && (
-            <Button onClick={handleEditClick}>修正</Button>
-          )}
+          {!isEditing &&
+            data!.author &&
+            session?.user?.email === data!.author.email && (
+              <Button onClick={handleEditClick}>修正</Button>
+            )}
         </Flex>
 
         {isEditing ? (

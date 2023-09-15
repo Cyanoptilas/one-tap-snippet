@@ -8,7 +8,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 
-interface CustomDialogProps {
+export interface CustomDialogProps {
   isOpen: boolean;
   onClose: (isError: boolean) => void;
   isError: boolean;

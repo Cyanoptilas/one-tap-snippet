@@ -30,7 +30,7 @@ const Header = () => {
         <Link href="/">
           <Box
             as="a"
-            p={4}
+            p={{ base: 1, md: 4 }}
             bgGradient="linear(to-r, #eee, #888)"
             borderWidth="2px"
             borderRadius="md"

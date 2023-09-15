@@ -20,8 +20,8 @@ const Footer = () => {
           <Link href="/about" color="whiteAlpha.800" mr={4}>
             About
           </Link>
-          <Link href="/contactus" color="whiteAlpha.800">
-            Contact Us
+          <Link href="/contactme" color="whiteAlpha.800">
+            Contact Me
           </Link>
         </Box>
         <Text fontSize="sm">&copy; {new Date().getFullYear()} one-tap-snippet</Text>
