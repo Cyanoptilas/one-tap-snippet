@@ -97,7 +97,7 @@ function SnippetCards(props: SnippetCardsProps) {
   };
 
   return (
-    <SimpleGrid columns={columns} spacing={2}>
+    <SimpleGrid columns={columns} spacing={2} pb={{ base: 14, lg: 0 }}>
       {displayedSnippets.map((snippet: Snippet) => {
         const design = {
           bg: "gray.50",
@@ -112,7 +112,7 @@ function SnippetCards(props: SnippetCardsProps) {
             const accumulatedLength = arr
               .slice(0, index + 1)
               .reduce((acc: number, tag: string) => acc + tag.length, 0);
-            return accumulatedLength < 18;
+            return accumulatedLength < 19;
           });
 
         return (
@@ -132,7 +132,7 @@ function SnippetCards(props: SnippetCardsProps) {
               height="24vh"
               minHeight="150px"
               maxWidth="360px"
-              p={5}
+              p={4}
               shadow="md"
               borderWidth="1px"
               borderRadius="md"
@@ -184,13 +184,24 @@ function SnippetCards(props: SnippetCardsProps) {
                 </Box>
               )}
               <Box>
-                <Heading fontSize="xl" color={design.textColor}>
+                <Heading
+                  fontSize="xl"
+                  color={design.textColor}
+                  maxWidth="290px"
+                  style={{
+                    overflow: "hidden",
+                    display: "-webkit-box",
+                    WebkitBoxOrient: "vertical",
+                    WebkitLineClamp: 2,
+                  }}
+                >
                   {snippet.function_name_jp || "タイトルなし"}
                 </Heading>
                 <Text mt={4} fontSize="sm" color={design.textColor}>
                   {snippet.function_description}
                 </Text>
               </Box>
+
               <Flex flexDirection="column" mb={-2}>
                 <Flex flexWrap="wrap" maxWidth="300px">
                   {tagsToShow.map((tag: string, index: number) => (

@@ -95,6 +95,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
       setBreakpoint(cardsPerPage);
       setPage(0);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cardsPerPage]);
 
   const sortedSnippets = localSnippets.sort((a, b) => {
@@ -293,6 +294,8 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
               alignItems="center"
               width="90%"
               my={2}
+              position="absolute"
+              bottom={{ base: "0%", lg: "2%" }}
             >
               <Button
                 onClick={() => setPage(page - 1)}
