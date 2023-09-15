@@ -85,7 +85,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const toast = useToast();
   const isSmallScreen = useBreakpointValue({ base: true, md: false });
-  const cardsPerPage = useBreakpointValue({ base: 5, md: 8, lg: 9 }) || 5;
+  const cardsPerPage = useBreakpointValue({ base: 3, md: 6, lg: 9 }) || 3;
   const [breakpoint, setBreakpoint] = useState(cardsPerPage);
   const [searchLanguage, setSearchLanguage] = useState("");
   const [searchTag, setSearchTag] = useState("");
@@ -211,8 +211,13 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
   return (
     <Layout>
       <StatesContext.Provider value={ContextProps}>
-        <Container maxW="6xl" pt={2} position="relative">
-          <VStack align="center" minHeight="100vh">
+        <Container
+          maxW="6xl"
+          pt={2}
+          position="relative"
+          minHeight="calc(100vh - 80px)"
+        >
+          <VStack align="center" minHeight="100%">
             {/* 上部操作系表示エリア */}
             <Flex
               justifyContent="space-between"
