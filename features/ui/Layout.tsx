@@ -23,7 +23,9 @@ const Layout: React.FC<Props> = (props) => {
   return (
     <>
       <Header />
-      <Box>{props.children}</Box>
+      <Box flex="1" display="flex" flexDirection="column" minHeight="88vh">
+        {props.children}
+      </Box>
       <Footer />
     </>
   );

@@ -4,14 +4,15 @@ import Link from "next/link";
 import MyMenuList from "./MyMenuList";
 
 const Header = () => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   return (
-    <Box minH="full">
+    <Box height="8vh">
       <Flex
         as="nav"
         bg="gray.800"
         px={{ base: 4, md: 6 }}
+        pb={-8}
         h={16}
         alignItems="center"
         justify="space-between"
@@ -35,8 +36,11 @@ const Header = () => {
             borderWidth="2px"
             borderRadius="md"
             borderColor="#333"
-            display="inline-block"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
             cursor="pointer"
+            height="8vh"
           >
             <Text
               fontSize={{ base: "md", md: "xl", lg: "2xl" }}

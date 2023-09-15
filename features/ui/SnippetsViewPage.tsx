@@ -216,7 +216,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
           maxW="6xl"
           pt={2}
           position="relative"
-          minHeight="calc(100vh - 80px)"
+          height={{ sm: "98vh", md: "93vh", lg: "87vh" }}
         >
           <VStack align="center" minHeight="100%">
             {/* 上部操作系表示エリア */}
@@ -241,7 +241,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
                 direction={{ base: "column", lg: "row" }}
                 alignItems="center"
               >
-                <Flex direction="row">
+                <Flex direction="row" mb={{ sm: 2, md: 0 }}>
                   <SearchBoxLanguage
                     searchLanguage={searchLanguage}
                     setSearchLanguage={setSearchLanguage}
@@ -295,7 +295,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
               width="90%"
               my={2}
               position="absolute"
-              bottom={{ base: "0%", lg: "2%" }}
+              bottom={{ base: "0%", lg: "-1%" }}
             >
               <Button
                 onClick={() => setPage(page - 1)}
