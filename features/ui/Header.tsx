@@ -1,10 +1,4 @@
-import {
-  Box,
-  Flex,
-  Image,
-  Button,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Flex, Image, Button, Text } from "@chakra-ui/react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import MyMenuList from "./MyMenuList";
@@ -45,7 +39,7 @@ const Header = () => {
             cursor="pointer"
           >
             <Text
-              fontSize={{ base: "md", sm: "2xl" }}
+              fontSize={{ base: "md", md: "xl", lg: "2xl" }}
               fontWeight="bold"
               textTransform="uppercase"
               letterSpacing="wider"
