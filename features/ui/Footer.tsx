@@ -20,9 +20,6 @@ const Footer = () => {
         px={{ base: 4, md: 6 }}
       >
         <Box>
-          <Link href="/about" color="whiteAlpha.800" mr={4}>
-            About
-          </Link>
           <Link href="/contactme" color="whiteAlpha.800">
             Contact Me
           </Link>

@@ -14,6 +14,7 @@ import {
   ModalBody,
   ModalFooter,
   Tooltip,
+  Text,
 } from "@chakra-ui/react";
 import "highlight.js/styles/vs2015.css";
 import { useRouter } from "next/router";
@@ -121,11 +122,21 @@ const Home = () => {
       <VStack
         spacing={4}
         padding={4}
-        marginTop={6}
         bg={bg}
         color={color}
         justifyContent="center"
       >
+        <Box
+          w={{ base: "90%", md: "70%" }}
+          minW={400}
+          p={2}
+          borderRadius="md"
+          bg="green.200"
+        >
+          <Text fontSize="sm">
+            登録結果画面で処理名、処理説明、タグの修正を行なえます。
+          </Text>
+        </Box>
         <Box
           bg="white"
           p={2}

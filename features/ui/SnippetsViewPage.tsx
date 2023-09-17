@@ -33,6 +33,7 @@ import SearchBoxTag from "@/features/ui/SearchBoxTag";
 import RadioGroupOrder from "@/features/ui/RadioGroupOrder";
 import SnippetCards, { SnippetCardsProps } from "@/features/ui/SnippetCards";
 import SearchBoxLanguage from "@/features/ui/SearchBoxLanguage";
+import { FaQuestionCircle } from "react-icons/fa";
 
 interface StatesContextProps {
   isMultiSelectMode: boolean;
@@ -341,47 +342,64 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
                 次のページ
               </Button>
             </Flex>
-            {!isTopPage &&
-              (session && isMultiSelectMode ? (
-                <Flex
+
+            {isTopPage ? (
+              <Tooltip
+                label="ログイン後、+ボタンから新規登録画面に行き、スニペットをコピペ&Enterで簡単に登録することができます！"
+                fontSize="md"
+                placement="left"
+                offset={[0, 10]}
+              >
+                <IconButton
+                  icon={<FaQuestionCircle />}
+                  isRound
+                  colorScheme="blue"
+                  aria-label="ヘルプ"
                   position="fixed"
-                  right={{ base: 1, md: 4 }}
-                  bottom={4}
-                  zIndex={10}
-                >
-                  <Tooltip label="Delete selected snippets" hasArrow>
-                    <IconButton
-                      icon={<DeleteIcon />}
-                      colorScheme="red"
-                      onClick={deleteSelectedSnippets}
-                      mr={2}
-                      aria-label="Delete selected snippets"
-                      isRound
-                      isDisabled={selectedIds.length === 0}
-                    />
-                  </Tooltip>
-                  <Tooltip label="Exit multi-select mode" hasArrow>
-                    <IconButton
-                      icon={<CloseIcon />}
-                      onClick={() => setIsMultiSelectMode(false)}
-                      aria-label="Exit multi-select mode"
-                      isRound
-                    />
-                  </Tooltip>
-                </Flex>
-              ) : (
-                <Tooltip label="カード長押しで削除モードに入る" hasArrow>
+                  bottom="45px"
+                  right="16px"
+                />
+              </Tooltip>
+            ) : session && isMultiSelectMode ? (
+              <Flex
+                position="fixed"
+                right={{ base: 1, md: 4 }}
+                bottom={4}
+                zIndex={10}
+              >
+                <Tooltip label="Delete selected snippets" hasArrow>
                   <IconButton
-                    icon={<QuestionOutlineIcon />}
-                    position="fixed"
-                    bottom={4}
-                    right={4}
-                    variant="ghost"
-                    aria-label="カード長押しで削除モードに入る"
+                    icon={<DeleteIcon />}
+                    colorScheme="red"
+                    onClick={deleteSelectedSnippets}
+                    mr={2}
+                    aria-label="Delete selected snippets"
+                    isRound
+                    isDisabled={selectedIds.length === 0}
+                  />
+                </Tooltip>
+                <Tooltip label="Exit multi-select mode" hasArrow>
+                  <IconButton
+                    icon={<CloseIcon />}
+                    onClick={() => setIsMultiSelectMode(false)}
+                    aria-label="Exit multi-select mode"
                     isRound
                   />
                 </Tooltip>
-              ))}
+              </Flex>
+            ) : (
+              <Tooltip label="カード長押しで削除モードに入る" hasArrow>
+                <IconButton
+                  icon={<QuestionOutlineIcon />}
+                  position="fixed"
+                  bottom={4}
+                  right={4}
+                  variant="ghost"
+                  aria-label="カード長押しで削除モードに入る"
+                  isRound
+                />
+              </Tooltip>
+            )}
           </VStack>
         </Container>
       </StatesContext.Provider>
