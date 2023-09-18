@@ -23,9 +23,6 @@ const Footer = () => {
           <Link href="/contactme" color="whiteAlpha.800" mr={4} fontSize="xs">
             Contact Me
           </Link>
-          <Link href="/about" color="whiteAlpha.800" mr={4} fontSize="xs">
-            About
-          </Link>
           <Link href="/terms-of-service" color="whiteAlpha.800" mr={4} fontSize="xs">
             利用規約
           </Link>
