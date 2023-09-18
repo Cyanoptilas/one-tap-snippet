@@ -134,6 +134,8 @@ const Home = () => {
           bg="green.200"
         >
           <Text fontSize="sm">
+            ChatGPTを利用し、スニペットのサマリーを自動生成します。
+            <br />
             登録結果画面で処理名、処理説明、タグの修正を行なえます。
           </Text>
         </Box>
