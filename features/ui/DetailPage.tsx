@@ -72,7 +72,7 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
 
   const tagInputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-  const columns = useBreakpointValue({ base: 1, sm: 2, md: 3 }) || 1;
+  const columns = useBreakpointValue({ base: 1, md: 2, lg: 3 }) || 1;
 
   const authorName = data?.author?.name ?? "NoName";
 

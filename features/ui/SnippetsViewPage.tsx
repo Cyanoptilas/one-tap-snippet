@@ -76,6 +76,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
   const router = useRouter();
   const { data: session } = useSession();
   const isTopPage: boolean = router.pathname === "/";
+  const isFavoritePage: boolean = router.pathname === "/myfavorites";
 
   const [page, setPage] = useState(0);
   const [sort, setSort] = useState("createdAt");
@@ -217,7 +218,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
           maxW="6xl"
           pt={2}
           position="relative"
-          height={{ sm: "98vh", md: "93vh", lg: "87vh" }}
+          height={{ base: "98vh", md: "93vh", lg: "87vh" }}
         >
           <VStack align="center" minHeight="100%">
             {/* 上部操作系表示エリア */}
@@ -236,7 +237,11 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
                 fontStyle="italic"
                 mb={{ base: 4, md: 0 }}
               >
-                {isTopPage ? "Snippets" : "My Snippets"}
+                {isTopPage
+                  ? "Snippets"
+                  : isFavoritePage
+                  ? "My Favorites"
+                  : "My Snippets"}
               </Heading>
               <Flex
                 direction={{ base: "column", lg: "row" }}
@@ -296,7 +301,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
               width="90%"
               my={2}
               position="absolute"
-              bottom={{ base: "0%", lg: "-1%" }}
+              bottom={{ base: "1%", sm: "0%", lg: "-1%" }}
             >
               <Button
                 onClick={() => setPage(page - 1)}
@@ -392,7 +397,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
                 <IconButton
                   icon={<QuestionOutlineIcon />}
                   position="fixed"
-                  bottom={4}
+                  bottom={7}
                   right={4}
                   variant="ghost"
                   aria-label="カード長押しで削除モードに入る"

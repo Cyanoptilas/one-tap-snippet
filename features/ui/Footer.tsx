@@ -6,13 +6,13 @@ const Footer = () => {
       as="footer"
       bg="gray.800"
       color="white"
-      height="4vh"
+      height={{ base: "6vh", sm: "4vh" }}
       width="100%"
       display="flex"
       justifyContent="center"
     >
       <Flex
-        direction={{ base: "row", md: "row" }}
+        direction={{ base: "column", sm: "row" }}
         justify="space-between"
         align="center"
         maxW="1200px"
@@ -23,7 +23,12 @@ const Footer = () => {
           <Link href="/contactme" color="whiteAlpha.800" mr={4} fontSize="xs">
             Contact Me
           </Link>
-          <Link href="/terms-of-service" color="whiteAlpha.800" mr={4} fontSize="xs">
+          <Link
+            href="/terms-of-service"
+            color="whiteAlpha.800"
+            mr={4}
+            fontSize="xs"
+          >
             利用規約
           </Link>
           <Link href="/privacy-policy" color="whiteAlpha.800" fontSize="xs">
