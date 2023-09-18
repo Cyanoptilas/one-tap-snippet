@@ -20,11 +20,20 @@ const Footer = () => {
         px={{ base: 4, md: 6 }}
       >
         <Box>
-          <Link href="/contactme" color="whiteAlpha.800">
+          <Link href="/contactme" color="whiteAlpha.800" mr={4} fontSize="xs">
             Contact Me
           </Link>
+          <Link href="/about" color="whiteAlpha.800" mr={4} fontSize="xs">
+            About
+          </Link>
+          <Link href="/terms-of-service" color="whiteAlpha.800" mr={4} fontSize="xs">
+            利用規約
+          </Link>
+          <Link href="/privacy-policy" color="whiteAlpha.800" fontSize="xs">
+            プライバシーポリシー
+          </Link>
         </Box>
-        <Text fontSize="sm">
+        <Text fontSize="xs">
           &copy; {new Date().getFullYear()} one-tap-snippet
         </Text>
       </Flex>
