@@ -233,7 +233,8 @@ function SnippetCards(props: SnippetCardsProps) {
                     px={2}
                     borderRadius="md"
                     color="white"
-                    fontSize="sm"
+                    fontSize={{base:"xs",sm:"sm"}}
+
                   >
                     {snippet.used_program_language}
                   </Box>
