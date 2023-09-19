@@ -10,7 +10,7 @@ function SearchBoxTag({ searchTag, setSearchTag }: SearchBoxTagProps) {
   return (
     <InputGroup
       size="md"
-      maxWidth="220px"
+      maxWidth="210px"
       mr={2}
     >
       <InputLeftElement pointerEvents="none">

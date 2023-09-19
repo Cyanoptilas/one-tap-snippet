@@ -6,7 +6,7 @@ const Footer = () => {
       as="footer"
       bg="gray.800"
       color="white"
-      height={{ base: "5vh", md: "4vh" }}
+      height={{ base: "45px", md: "28px" }}
       width="100%"
       display="flex"
       justifyContent="center"

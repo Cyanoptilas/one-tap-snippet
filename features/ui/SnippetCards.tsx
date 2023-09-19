@@ -130,7 +130,7 @@ function SnippetCards(props: SnippetCardsProps) {
               key={snippet.id}
               position="relative"
               height="24vh"
-              minHeight="150px"
+              minHeight="200px"
               maxWidth="360px"
               p={4}
               shadow="md"

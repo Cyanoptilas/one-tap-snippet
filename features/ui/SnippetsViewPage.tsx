@@ -218,7 +218,8 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
           maxW="6xl"
           pt={2}
           position="relative"
-          height={{ base: "98vh", md: "93vh", lg: "87vh" }}
+          height={{ base: "98vh", md: "98vh", lg: "93vh" }}
+          minHeight={{ base: "830px", md: "820px", lg: "770px" }}
         >
           <VStack align="center" minHeight="100%">
             {/* 上部操作系表示エリア */}
@@ -227,11 +228,11 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
               width="100%"
               flexDirection={{ base: "column", md: "row" }}
               alignItems="center"
-              pb={2}
+              minHeight={{ base: "80px", md: "120px", lg: "75px" }}
             >
               <Heading
                 as="h1"
-                size={{ base: "md", md: "xl" }}
+                size={{ base: "md", md: "lg" }}
                 color="blue.600"
                 fontFamily="Poppins, sans-serif"
                 fontStyle="italic"
@@ -301,7 +302,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
               width="90%"
               my={2}
               position="absolute"
-              bottom={{ base: "1%", sm: "0%", lg: "-1%" }}
+              bottom="1%"
             >
               <Button
                 onClick={() => setPage(page - 1)}
@@ -398,8 +399,8 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
                 <IconButton
                   icon={<QuestionOutlineIcon />}
                   position="fixed"
-                  bottom={9}
-                  right={2}
+                  bottom={{base:14,md:10}}
+                  right={1}
                   variant="ghost"
                   aria-label="カード長押しで削除モードに入る"
                   isRound
