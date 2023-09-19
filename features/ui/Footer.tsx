@@ -6,14 +6,14 @@ const Footer = () => {
       as="footer"
       bg="gray.800"
       color="white"
-      height={{ base: "6vh", sm: "4vh" }}
+      height={{ base: "5vh", md: "4vh" }}
       width="100%"
       display="flex"
       justifyContent="center"
     >
       <Flex
-        direction={{ base: "column", sm: "row" }}
-        justify="space-between"
+        direction={{ base: "column", md: "row" }}
+        justify={{ base: "center", sm: "space-between" }}
         align="center"
         maxW="1200px"
         width="100%"
@@ -36,7 +36,11 @@ const Footer = () => {
           </Link>
         </Box>
         <Text fontSize="xs">
-          &copy; {new Date().getFullYear()} one-tap-snippet
+          &copy; 2023{" "}
+          <Link href="https://twitter.com/cyanoptilas" color="teal.500">
+            Cyanoptilas
+          </Link>{" "}
+          ONE-TAP-SNIPPET
         </Text>
       </Flex>
     </Box>

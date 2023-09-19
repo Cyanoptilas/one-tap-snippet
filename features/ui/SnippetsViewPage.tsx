@@ -247,7 +247,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
                 direction={{ base: "column", lg: "row" }}
                 alignItems="center"
               >
-                <Flex direction="row" mb={{ sm: 2, md: 0 }}>
+                <Flex direction="row" mb={{ base: 2, md: 0 }}>
                   <SearchBoxLanguage
                     searchLanguage={searchLanguage}
                     setSearchLanguage={setSearchLanguage}
@@ -352,17 +352,18 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
               <Tooltip
                 label="ログイン後、+ボタンから新規登録画面に行き、スニペットをコピペ&Enterで簡単に登録することができます！"
                 fontSize="md"
-                placement="left"
-                offset={[0, 10]}
+                placement="auto-start"
+                offset={[5, 7]}
+                hasArrow
               >
                 <IconButton
-                  icon={<FaQuestionCircle />}
+                  icon={<QuestionOutlineIcon />}
                   isRound
-                  colorScheme="blue"
                   aria-label="ヘルプ"
                   position="fixed"
-                  bottom="45px"
-                  right="16px"
+                  bottom={10}
+                  right={0}
+                  variant="ghost"
                 />
               </Tooltip>
             ) : session && isMultiSelectMode ? (
@@ -397,8 +398,8 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
                 <IconButton
                   icon={<QuestionOutlineIcon />}
                   position="fixed"
-                  bottom={7}
-                  right={4}
+                  bottom={9}
+                  right={2}
                   variant="ghost"
                   aria-label="カード長押しで削除モードに入る"
                   isRound
