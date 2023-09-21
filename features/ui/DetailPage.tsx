@@ -60,7 +60,7 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
   const [originalData, setOriginalData] = useState<SnippetDetailData | null>(
     snippet
   ); // 修正前のデータを保持
-  const [selectedTag] = useState<string | null>();
+  const [selectedTag, setSelectedTag] = useState<string | null>();
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [tags, setTags] = useState<string[]>(snippet.tags);
   const [isTagAdded, setIsTagAdded] = useState(false);
@@ -150,7 +150,7 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
     }
 
     try {
-      const updatedData: UpdatedData = {
+      let updatedData: UpdatedData = {
         id: data.id,
         tags: tags,
       };
