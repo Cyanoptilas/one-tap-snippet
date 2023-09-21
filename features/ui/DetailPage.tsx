@@ -391,7 +391,7 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
               <Box py={2}>
                 <GoogleAdsense
                   client={process.env.ADSENSE_CLIENT_ID as string}
-                  slot="3357009317"
+                  slot={process.env.ADSENSE_SLOT_ID}
                   style={{ display: "block" }}
                 />
               </Box>
