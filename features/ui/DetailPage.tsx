@@ -28,6 +28,7 @@ import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import MarkdownDisplay from "@/features/ui/MarkdownDisplay";
 import Loading from "@/features/ui/Loading";
 import { useSession } from "next-auth/react";
+import GoogleAdsense from "./adsence/GoogleAdsense";
 
 export interface SnippetDetailData {
   id: string;
@@ -385,6 +386,16 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
                 ))}
               </Box>
             </Box>
+
+            {process.env.NODE_ENV !== "development" && (
+              <Box py={2}>
+                <GoogleAdsense
+                  client={process.env.ADSENSE_CLIENT_ID as string}
+                  slot="3357009317"
+                  style={{ display: "block" }}
+                />
+              </Box>
+            )}
 
             <Box fontSize={14}>
               <MarkdownDisplay content={data.markdownCode} />
