@@ -3,6 +3,7 @@ import Script from "next/script";
 
 class MyDocument extends Document {
   render() {
+    const id = process.env.ADSENSE_CLIENT_ID;
     return (
       <Html>
         <Head>
@@ -12,7 +13,7 @@ class MyDocument extends Document {
           />
           <Script
             async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4674670817271557"
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${id}`}
             crossOrigin="anonymous"
             strategy="afterInteractive"
           />
