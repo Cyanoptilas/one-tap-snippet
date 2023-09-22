@@ -7,13 +7,13 @@ const Header = () => {
   const { data: session } = useSession();
 
   return (
-    <Box height="8vh">
+    <Box>
       <Flex
         as="nav"
         bg="gray.800"
         px={{ base: 4, md: 6 }}
         pb={-8}
-        h={16}
+        h={14}
         alignItems="center"
         justify="space-between"
       >
@@ -40,7 +40,7 @@ const Header = () => {
             justifyContent="center"
             alignItems="center"
             cursor="pointer"
-            height="8vh"
+            height="65px"
           >
             <Text
               fontSize={{ base: "md", md: "xl", lg: "2xl" }}

@@ -15,19 +15,20 @@ const Layout: React.FC<Props> = (props) => {
 
   useEffect(() => {
     onOpen();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (status === "loading") {
     return <Loading isOpen={isOpen} onClose={onClose} />;
   }
   return (
-    <>
+    <Box minWidth="360px">
       <Header />
       <Box flex="1" display="flex" flexDirection="column" minHeight="88vh">
         {props.children}
       </Box>
       <Footer />
-    </>
+    </Box>
   );
 };
 
