@@ -1,4 +1,5 @@
-import { Box, Flex, Text, Link } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -19,23 +20,18 @@ const Footer = () => {
         width="100%"
         px={{ base: 4, md: 6 }}
       >
-        <Box>
-          <Link href="/contactme" color="whiteAlpha.800" mr={4} fontSize="xs">
+        <Flex fontSize="xs" width="280px" justify="space-between">
+          <Link href="/contactme" color="whiteAlpha.800">
             Contact Me
           </Link>
-          <Link
-            href="/terms-of-service"
-            color="whiteAlpha.800"
-            mr={4}
-            fontSize="xs"
-          >
+          <Link href="/terms-of-service" color="whiteAlpha.800">
             利用規約
           </Link>
-          <Link href="/privacy-policy" color="whiteAlpha.800" fontSize="xs">
+          <Link href="/privacy-policy" color="whiteAlpha.800">
             プライバシーポリシー
           </Link>
-        </Box>
-        <Text fontSize="xs">
+        </Flex>
+        <Text fontSize="xs" _hover={{ textDecoration: "underline" }}>
           &copy; 2023{" "}
           <Link href="https://twitter.com/cyanoptilas" color="teal.500">
             Cyanoptilas
