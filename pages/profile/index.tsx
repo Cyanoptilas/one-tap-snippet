@@ -60,7 +60,7 @@ const Profile: React.FC = () => {
 
   return (
     <Layout>
-      <Box mx="auto" maxW="screen-2xl" px={{ base: 4, md: 8 }}>
+      <Box mx="auto" px={{ base: 4, md: 8 }}>
         <Heading
           my={{ base: 4, md: 8 }}
           textAlign="center"
@@ -74,7 +74,8 @@ const Profile: React.FC = () => {
         <Box
           bg="white"
           mx="auto"
-          maxW="lg"
+          maxW="xl"
+          minW={{ md: "md" }}
           borderRadius="lg"
           borderWidth="1px"
           boxShadow="lg"
