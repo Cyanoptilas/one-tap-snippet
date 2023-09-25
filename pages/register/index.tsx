@@ -120,8 +120,10 @@ const Home = () => {
   return (
     <Layout>
       <VStack
-        spacing={4}
-        padding={4}
+        spacing={2}
+        paddingX={4}
+        mt={1}
+        minHeight="92vh"
         bg={bg}
         color={color}
         justifyContent="center"

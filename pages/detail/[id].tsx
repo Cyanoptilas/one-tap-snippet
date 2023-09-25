@@ -27,7 +27,9 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const snippet = {
     ...snippetData,
     markdownCode:
-      `\`\`\`${snippetData!.used_program_language.toLowerCase()}\n` +
+      `\`\`\`${snippetData!.used_program_language
+        .replace(".", "")
+        .toLowerCase()}\n` +
       snippetData!.code +
       `\n\`\`\``,
     createdAt: snippetData!.createdAt.toISOString(),

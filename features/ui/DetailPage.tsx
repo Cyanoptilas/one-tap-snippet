@@ -198,7 +198,7 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
   };
 
   return (
-    <Container maxW="3xl" minW="sm" centerContent py="4">
+    <Container maxW="3xl" minWidth="sm" minHeight="91vh" centerContent py="4">
       <Flex mb="4" width="100%">
         <Button
           onClick={() => router.push("/")}
@@ -386,16 +386,6 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
                 ))}
               </Box>
             </Box>
-
-            {process.env.NODE_ENV !== "development" && (
-              <Box py={2}>
-                <GoogleAdsense
-                  client={process.env.ADSENSE_CLIENT_ID as string}
-                  slot={process.env.ADSENSE_SLOT_ID as string}
-                  style={{ display: "block" }}
-                />
-              </Box>
-            )}
 
             <Box fontSize={14}>
               <MarkdownDisplay content={data.markdownCode} />
