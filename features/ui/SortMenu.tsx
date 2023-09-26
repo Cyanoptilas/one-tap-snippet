@@ -1,4 +1,3 @@
-import { ChevronDownIcon } from "@chakra-ui/icons";
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { BsSortDown, BsSortDownAlt } from "react-icons/bs";
 
@@ -17,7 +16,7 @@ function SortMenu({ sort, setSort, order, setPage }: SortMenuProps) {
 
   const sortOptions = [
     { value: "title", display: "タイトル" },
-    { value: "language", display: "プログラミング言語" },
+    { value: "language", display: "言語" },
     { value: "createdAt", display: "作成日時" },
     { value: "updatedAt", display: "更新日時" },
   ];
@@ -28,6 +27,7 @@ function SortMenu({ sort, setSort, order, setPage }: SortMenuProps) {
         as={Button}
         leftIcon={order === "desc" ? <BsSortDown /> : <BsSortDownAlt />}
         colorScheme="gray"
+        width="120px"
       >
         {sortOptions.find((opt) => opt.value === sort)?.display}
       </MenuButton>

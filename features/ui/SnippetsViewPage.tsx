@@ -97,8 +97,9 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cardsPerPage]);
 
-  const sortedSnippets = localSnippets.sort((a, b) => {
+  const sortedSnippets = [...localSnippets].sort((a, b) => {
     let comparison = 0;
+
     switch (sort) {
       case "title":
         comparison = (a.function_name_jp || "タイトルなし").localeCompare(
@@ -112,15 +113,16 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
         break;
       case "createdAt":
         comparison =
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
         break;
       case "updatedAt":
         comparison =
-          new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+          new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime();
         break;
       default:
         comparison = 0;
     }
+
     return order === "asc" ? comparison : -comparison;
   });
 

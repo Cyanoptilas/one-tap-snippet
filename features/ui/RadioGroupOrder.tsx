@@ -1,4 +1,4 @@
-import { Radio, RadioGroup, Stack } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 
 interface RadioGroupOrderProps {
   order: string;
@@ -6,17 +6,14 @@ interface RadioGroupOrderProps {
 }
 
 function RadioGroupOrder({ order, setOrder }: RadioGroupOrderProps) {
+  const toggleOrder = () => {
+    setOrder(order === "asc" ? "desc" : "asc");
+  };
+
   return (
-    <RadioGroup onChange={setOrder} value={order} mr={4}>
-      <Stack direction="row">
-        <Radio colorScheme="blue" value="asc">
-          降順
-        </Radio>
-        <Radio colorScheme="blue" value="desc">
-          昇順
-        </Radio>
-      </Stack>
-    </RadioGroup>
+    <Button onClick={toggleOrder} colorScheme="blue" variant="outline" mr={2}>
+      {order === "asc" ? "昇順" : "降順"}
+    </Button>
   );
 }
 
