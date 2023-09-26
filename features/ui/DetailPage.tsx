@@ -28,7 +28,7 @@ import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import MarkdownDisplay from "@/features/ui/MarkdownDisplay";
 import Loading from "@/features/ui/Loading";
 import { useSession } from "next-auth/react";
-import GoogleAdsense from "./adsence/GoogleAdsense";
+import ShareButton from "./button/ShareButton";
 
 export interface SnippetDetailData {
   id: string;
@@ -76,6 +76,8 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
   const columns = useBreakpointValue({ base: 1, md: 2, lg: 3 }) || 1;
 
   const authorName = data?.author?.name ?? "NoName";
+
+  const rootUrl = "https://one-tap-snippet.vercel.app";
 
   useEffect(() => {
     if (isTagAdded) {
@@ -346,7 +348,7 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
               bg="gray.100"
               p="4"
               borderRadius="md"
-              mb="4"
+              mb="2"
               borderColor="gray.300"
               borderWidth="1px"
               position="relative"
@@ -386,6 +388,16 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
                 ))}
               </Box>
             </Box>
+
+            <ShareButton
+              title={
+                `「` +
+                data.function_name_jp +
+                `」\n` +
+                data.function_description
+              }
+              url={`\n` + rootUrl + router.asPath}
+            />
 
             <Box fontSize={14}>
               <MarkdownDisplay content={data.markdownCode} />
