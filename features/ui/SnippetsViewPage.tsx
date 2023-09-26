@@ -29,11 +29,9 @@ import {
   QuestionOutlineIcon,
 } from "@chakra-ui/icons";
 import SortMenu from "@/features/ui/SortMenu";
-import SearchBoxTag from "@/features/ui/SearchBoxTag";
 import RadioGroupOrder from "@/features/ui/RadioGroupOrder";
-import SnippetCards, { SnippetCardsProps } from "@/features/ui/SnippetCards";
-import SearchBoxLanguage from "@/features/ui/SearchBoxLanguage";
-import { FaQuestionCircle } from "react-icons/fa";
+import SnippetCards from "@/features/ui/SnippetCards";
+import SearchBox from "./SearchBox";
 
 interface StatesContextProps {
   isMultiSelectMode: boolean;
@@ -89,8 +87,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
   const isSmallScreen = useBreakpointValue({ base: true, md: false });
   const cardsPerPage = useBreakpointValue({ base: 3, md: 6, lg: 9 }) || 3;
   const [breakpoint, setBreakpoint] = useState(cardsPerPage);
-  const [searchLanguage, setSearchLanguage] = useState("");
-  const [searchTag, setSearchTag] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     if (breakpoint !== cardsPerPage) {
@@ -129,14 +126,12 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
 
   const allFilteredSnippets = sortedSnippets.filter(
     (snippet) =>
-      (!searchTag ||
-        snippet.tags.some((tag) =>
-          tag.toLowerCase().startsWith(searchTag.toLowerCase())
-        )) &&
-      (!searchLanguage ||
-        snippet.used_program_language
-          .toLowerCase()
-          .includes(searchLanguage.toLowerCase()))
+      snippet.tags.some((tag) =>
+        tag.toLowerCase().includes(searchValue.toLowerCase())
+      ) ||
+      snippet.used_program_language
+        .toLowerCase()
+        .includes(searchValue.toLowerCase())
   );
 
   const displayedSnippets = allFilteredSnippets.slice(
@@ -157,7 +152,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
     // 詳細ページでタグをクリックして遷移してきた場合にタグをセットする
     const tag = router.query.tag as string | undefined;
     if (tag) {
-      setSearchTag(tag);
+      setSearchValue(tag);
     }
   }, [router.query.tag]);
 
@@ -249,13 +244,9 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
                 alignItems="center"
               >
                 <Flex direction="row" mb={{ base: 2, md: 0 }}>
-                  <SearchBoxLanguage
-                    searchLanguage={searchLanguage}
-                    setSearchLanguage={setSearchLanguage}
-                  />
-                  <SearchBoxTag
-                    searchTag={searchTag}
-                    setSearchTag={setSearchTag}
+                  <SearchBox
+                    searchValue={searchValue}
+                    setSearchValue={setSearchValue}
                   />
                 </Flex>
 
@@ -399,7 +390,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
                 <IconButton
                   icon={<QuestionOutlineIcon />}
                   position="fixed"
-                  bottom={{base:14,md:10}}
+                  bottom={{ base: 14, md: 10 }}
                   right={1}
                   variant="ghost"
                   aria-label="カード長押しで削除モードに入る"
