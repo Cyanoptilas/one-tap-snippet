@@ -28,36 +28,30 @@ const Footer = () => {
         px={{ base: 4, md: 6 }}
       >
         <Flex fontSize="xs" width="280px" justify="space-between">
-          <LinkBox>
-            <LinkOverlay
-              as={Link}
-              href="/contactme"
-              _hover={{ textDecoration: "underline" }}
+          <Link href="/contactme" passHref>
+            <ChakraLink
               color="whiteAlpha.800"
+              _hover={{ textDecoration: "underline" }}
             >
               Contact Me
-            </LinkOverlay>
-          </LinkBox>
-          <LinkBox>
-            <LinkOverlay
-              as={Link}
-              href="/terms-of-service"
-              _hover={{ textDecoration: "underline" }}
+            </ChakraLink>
+          </Link>
+          <Link href="/terms-of-service" passHref>
+            <ChakraLink
               color="whiteAlpha.800"
+              _hover={{ textDecoration: "underline" }}
             >
               利用規約
-            </LinkOverlay>
-          </LinkBox>
-          <LinkBox>
-            <LinkOverlay
-              as={Link}
-              href="/privacy-policy"
-              _hover={{ textDecoration: "underline" }}
+            </ChakraLink>
+          </Link>
+          <Link href="/privacy-policy" passHref>
+            <ChakraLink
               color="whiteAlpha.800"
+              _hover={{ textDecoration: "underline" }}
             >
               プライバシーポリシー
-            </LinkOverlay>
-          </LinkBox>
+            </ChakraLink>
+          </Link>
         </Flex>
 
         <Text fontSize="xs">
