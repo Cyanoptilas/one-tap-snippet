@@ -1,4 +1,11 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Text,
+  Link as ChakraLink,
+  LinkBox,
+  LinkOverlay,
+} from "@chakra-ui/react";
 import Link from "next/link";
 
 const Footer = () => {
@@ -21,21 +28,49 @@ const Footer = () => {
         px={{ base: 4, md: 6 }}
       >
         <Flex fontSize="xs" width="280px" justify="space-between">
-          <Link href="/contactme" color="whiteAlpha.800">
-            Contact Me
-          </Link>
-          <Link href="/terms-of-service" color="whiteAlpha.800">
-            利用規約
-          </Link>
-          <Link href="/privacy-policy" color="whiteAlpha.800">
-            プライバシーポリシー
-          </Link>
+          <LinkBox>
+            <LinkOverlay
+              as={Link}
+              href="/contactme"
+              _hover={{ textDecoration: "underline" }}
+              color="whiteAlpha.800"
+            >
+              Contact Me
+            </LinkOverlay>
+          </LinkBox>
+          <LinkBox>
+            <LinkOverlay
+              as={Link}
+              href="/terms-of-service"
+              _hover={{ textDecoration: "underline" }}
+              color="whiteAlpha.800"
+            >
+              利用規約
+            </LinkOverlay>
+          </LinkBox>
+          <LinkBox>
+            <LinkOverlay
+              as={Link}
+              href="/privacy-policy"
+              _hover={{ textDecoration: "underline" }}
+              color="whiteAlpha.800"
+            >
+              プライバシーポリシー
+            </LinkOverlay>
+          </LinkBox>
         </Flex>
-        <Text fontSize="xs" _hover={{ textDecoration: "underline" }}>
+
+        <Text fontSize="xs">
           &copy; 2023{" "}
-          <Link href="https://twitter.com/cyanoptilas" color="teal.500">
+          <ChakraLink
+            href="https://twitter.com/cyanoptilas"
+            mx={2}
+            color="teal.500"
+            isExternal
+            _hover={{ textDecoration: "underline" }}
+          >
             Cyanoptilas
-          </Link>{" "}
+          </ChakraLink>{" "}
           ONE-TAP-SNIPPET
         </Text>
       </Flex>
