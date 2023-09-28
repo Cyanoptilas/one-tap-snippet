@@ -205,7 +205,14 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
   };
 
   return (
-    <Container maxW="3xl" minWidth="sm" minHeight="91vh" centerContent py="4">
+    <Container
+      maxW="3xl"
+      minWidth="sm"
+      height="auto"
+      minHeight="calc(100vh - 84px)"
+      centerContent
+      py="4"
+    >
       <Flex mb="4" width="100%">
         <Button
           onClick={() => router.push("/")}
