@@ -30,7 +30,6 @@ const ContactMe: React.FC = () => {
     if (!isError) Router.push("/").then(() => setIsSending(false));
     else setIsSending(false);
   };
-  
 
   const onSend: React.MouseEventHandler<HTMLButtonElement> = async () => {
     try {
@@ -68,7 +67,12 @@ const ContactMe: React.FC = () => {
   return (
     <>
       <Layout>
-        <Box display="flex" justifyContent="center" height="calc(100vh - 104px)">
+        <Box
+          display="flex"
+          justifyContent="center"
+          height="calc(100vh - 84px)"
+          minHeight="520px"
+        >
           <Box
             bg="white"
             py={[6, 8, 12]}

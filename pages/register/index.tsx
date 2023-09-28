@@ -130,7 +130,8 @@ const Home = () => {
       >
         <Box
           w={{ base: "90%", md: "70%" }}
-          minW={400}
+          minWidth={400}
+          maxWidth={800}
           p={2}
           borderRadius="md"
           bg="green.200"
@@ -146,8 +147,9 @@ const Home = () => {
           p={2}
           shadow="md"
           borderRadius="md"
-          w={{ base: "90%", md: "70%" }}
-          minW={400}
+          width={{ base: "90%", md: "70%" }}
+          minWidth={400}
+          maxWidth={800}
           borderWidth="1px"
           borderColor="gray.200"
           transition="width 0.3s ease-in-out"

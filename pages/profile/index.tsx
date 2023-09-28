@@ -60,7 +60,12 @@ const Profile: React.FC = () => {
 
   return (
     <Layout>
-      <Box mx="auto" px={{ base: 4, md: 8 }} height="91vh" minHeight="500px">
+      <Box
+        mx="auto"
+        px={{ base: 4, md: 8 }}
+        height="calc(100vh - 84px)"
+        minHeight="530px"
+      >
         <Heading
           my={{ base: 4, md: 8 }}
           textAlign="center"

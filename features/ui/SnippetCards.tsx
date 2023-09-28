@@ -97,7 +97,11 @@ function SnippetCards(props: SnippetCardsProps) {
   };
 
   return (
-    <SimpleGrid columns={columns} spacing={2} pb={{ base: 14, lg: 0 }}>
+    <SimpleGrid
+      columns={columns}
+      spacing={{ base: 5, md: 5, lg: 7 }}
+      pb={{ base: 6, lg: 0 }}
+    >
       {displayedSnippets.map((snippet: Snippet) => {
         const design = {
           bg: "gray.50",
@@ -130,8 +134,8 @@ function SnippetCards(props: SnippetCardsProps) {
               key={snippet.id}
               position="relative"
               height="24vh"
-              minHeight="200px"
-              maxWidth="360px"
+              minHeight={{ base: "210px", md: "200px", lg: "220px" }}
+              maxWidth="350px"
               p={4}
               shadow="md"
               borderWidth="1px"
@@ -151,8 +155,8 @@ function SnippetCards(props: SnippetCardsProps) {
               {isMultiSelectMode && (
                 <Checkbox
                   position="absolute"
-                  top="2"
-                  right="2"
+                  top={2}
+                  right={2}
                   pointerEvents="none"
                   isChecked={selectedIds.includes(snippet.id)}
                   onChange={() => toggleSelected(snippet.id)}
@@ -185,7 +189,7 @@ function SnippetCards(props: SnippetCardsProps) {
               )}
               <Box>
                 <Heading
-                  fontSize="xl"
+                  fontSize="lg"
                   color={design.textColor}
                   maxWidth="290px"
                   style={{
@@ -233,8 +237,7 @@ function SnippetCards(props: SnippetCardsProps) {
                     px={2}
                     borderRadius="md"
                     color="white"
-                    fontSize={{base:"xs",sm:"sm"}}
-
+                    fontSize="sm"
                   >
                     {snippet.used_program_language}
                   </Box>

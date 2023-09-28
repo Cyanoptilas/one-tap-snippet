@@ -13,7 +13,7 @@ interface SearchBoxProps {
 
 function SearchBox({ searchValue, setSearchValue }: SearchBoxProps) {
   return (
-    <InputGroup size="md" maxWidth="210px" mr={2}>
+    <InputGroup size="md" width="200px" mr={2}>
       <InputLeftElement pointerEvents="none">
         <SearchIcon color="gray.300" />
       </InputLeftElement>
@@ -21,7 +21,7 @@ function SearchBox({ searchValue, setSearchValue }: SearchBoxProps) {
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
         placeholder="タグor言語で検索"
-        pr={{ base: "1.75rem", lg: "2.5rem" }}
+        pr={{ base: "1.75rem", lg: "2.0rem" }}
       />
       {searchValue && (
         <InputRightElement>

@@ -21,7 +21,7 @@ const Footer = () => {
     >
       <Flex
         direction={{ base: "column", md: "row" }}
-        justify={{ base: "center", sm: "space-between" }}
+        justify={{ base: "center", md: "space-between" }}
         align="center"
         maxW="1200px"
         width="100%"

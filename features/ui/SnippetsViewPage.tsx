@@ -215,8 +215,8 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
           maxW="6xl"
           pt={2}
           position="relative"
-          height={{ base: "98vh", md: "98vh", lg: "93vh" }}
-          minHeight={{ base: "830px", md: "820px", lg: "770px" }}
+          height={{ base: "91vh", md: "92vh", lg: "93vh" }}
+          minHeight={{ base: "880px", md: "810px", lg: "860px" }}
         >
           <VStack align="center" minHeight="100%">
             {/* 上部操作系表示エリア */}
@@ -225,7 +225,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
               width="100%"
               flexDirection={{ base: "column", md: "row" }}
               alignItems="center"
-              minHeight={{ base: "80px", md: "120px", lg: "75px" }}
+              minHeight={{ base: "80px", md: "70px", lg: "60px" }}
             >
               <Heading
                 as="h1"
@@ -241,8 +241,9 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
                   ? "My Favorites"
                   : "My Snippets"}
               </Heading>
+
               <Flex
-                direction={{ base: "column", lg: "row" }}
+                direction={{ base: "column", md: "row" }}
                 alignItems="center"
               >
                 <Flex direction="row" mb={{ base: 2, md: 0 }}>
@@ -255,9 +256,8 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
                 <Flex
                   direction="row"
                   alignItems="center"
-                  justifyContent={{ base: "flex-end", lg: "flex-start" }}
+                  justifyContent={{ base: "flex-end", md: "flex-start" }}
                   width={{ base: "100%", lg: "auto" }}
-                  mt={{ md: 2, lg: 0 }}
                 >
                   <RadioGroupOrder order={order} setOrder={setOrder} />
                   <SortMenu
@@ -293,7 +293,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
               justifyContent="center"
               alignItems="center"
               width="90%"
-              my={2}
+              my={0}
               position="absolute"
               bottom="1%"
             >
@@ -355,7 +355,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
                   isRound
                   aria-label="ヘルプ"
                   position="fixed"
-                  bottom={10}
+                  bottom={6}
                   right={0}
                   variant="ghost"
                 />
