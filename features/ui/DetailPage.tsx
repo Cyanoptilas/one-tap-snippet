@@ -21,6 +21,7 @@ import {
   InputGroup,
   useBreakpointValue,
   useToast,
+  useClipboard,
 } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
@@ -67,6 +68,10 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
   const [isTagAdded, setIsTagAdded] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const clipboard = useClipboard(data!.code!.toString());
+  const hasCopied = clipboard.hasCopied;
+  const setHasCopied = clipboard.onCopy;
 
   const { isOpen, onClose } = useDisclosure();
   const toast = useToast();
@@ -399,8 +404,17 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
               url={`\n` + rootUrl + router.asPath}
             />
 
-            <Box fontSize={14}>
+            <Box fontSize={14} position="relative">
               <MarkdownDisplay content={data.markdownCode} />
+              <Button
+                size="xs"
+                position="absolute"
+                top={2}
+                right={2}
+                onClick={setHasCopied}
+              >
+                {hasCopied ? "Copied!" : "Copy"}
+              </Button>
             </Box>
           </>
         )}
