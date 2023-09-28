@@ -133,7 +133,7 @@ function SnippetCards(props: SnippetCardsProps) {
               {...handleLongPress(snippet.id)}
               key={snippet.id}
               position="relative"
-              height="24vh"
+              height={{ base: "22vh", md: "24vh" }}
               minHeight={{ base: "210px", md: "200px", lg: "220px" }}
               maxWidth="350px"
               p={4}

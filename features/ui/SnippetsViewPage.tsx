@@ -355,7 +355,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
                   isRound
                   aria-label="ヘルプ"
                   position="fixed"
-                  bottom={6}
+                  bottom={{ base: 9, md: 6 }}
                   right={0}
                   variant="ghost"
                 />
