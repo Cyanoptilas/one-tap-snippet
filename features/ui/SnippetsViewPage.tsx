@@ -78,7 +78,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
 
   const [page, setPage] = useState(0);
   const [sort, setSort] = useState("createdAt");
-  const [order, setOrder] = useState("asc");
+  const [order, setOrder] = useState("desc");
   const [localSnippets, setLocalSnippets] = useState<Snippet[]>(snippets);
 
   const [isMultiSelectMode, setIsMultiSelectMode] = useState<boolean>(false);
