@@ -2,17 +2,20 @@ import Layout from "@/features/ui/Layout";
 import {
   Box,
   Heading,
-  Text,
-  Link,
   UnorderedList,
   ListItem,
   OrderedList,
+  Divider,
+  Flex,
+  Link as ChakrLink,
+  Container,
 } from "@chakra-ui/react";
+import Link from "next/link";
 
 const PrivacyPolicy = () => {
   return (
     <Layout>
-      <Box bg="gray.50" zIndex={-1}>
+      <Box bg="gray.50">
         <Box
           p={6}
           maxW="1200px"
@@ -31,27 +34,23 @@ const PrivacyPolicy = () => {
             borderColor="teal.500"
             pb={2}
           >
-            ONE-TAP-SNIPPET プライバシーポリシー
+            ONE-TAP-SNIPPET プライバシーポリシー・免責事項
           </Heading>
-
           <Box mb={4} lineHeight="1.6" color="gray.700">
-            当サイトは、以下のようにプライバシーポリシーを定め、個人情報保護の重要性の認識と取り組みを行っております。
+            当サイトは、以下のようにプライバシーポリシー・免責事項を定め、個人情報保護の重要性の認識と取り組みを行っております。
           </Box>
-
           <Heading as="h2" size="md" mb={2}>
             第1条（個人情報）
           </Heading>
           <Box mb={4} pl={4}>
             「個人情報」とは，個人情報保護法にいう「個人情報」を指すものとし，生存する個人に関する情報であって，当該情報に含まれる氏名，生年月日，住所，電話番号，連絡先その他の記述等により特定の個人を識別できる情報及び容貌，指紋，声紋にかかるデータ，及び健康保険証の保険者番号などの当該情報単体から特定の個人を識別できる情報（個人識別情報）を指します。
           </Box>
-
           <Heading as="h2" size="md" mb={2}>
             第2条（個人情報の収集方法）
           </Heading>
           <Box mb={4} pl={4}>
             当サイトは、ユーザーが利用登録をする際に氏名、メールアドレスなどの個人情報をお尋ねすることがあります。また、ユーザーとの取引に関連して、ユーザーから契約内容や取引内容を収集することがあります。
           </Box>
-
           <Heading as="h2" size="md" mb={2}>
             第3条（個人情報を収集・利用する目的）
           </Heading>
@@ -66,7 +65,6 @@ const PrivacyPolicy = () => {
               <ListItem>その他、上記利用目的に付随する目的のため</ListItem>
             </OrderedList>
           </Box>
-
           <Heading as="h2" size="md" mb={2}>
             第4条（利用目的の変更）
           </Heading>
@@ -80,7 +78,6 @@ const PrivacyPolicy = () => {
               </ListItem>
             </OrderedList>
           </Box>
-
           <Heading as="h2" size="md" mb={2}>
             第5条（個人情報の第三者提供）
           </Heading>
@@ -126,7 +123,6 @@ const PrivacyPolicy = () => {
               </ListItem>
             </OrderedList>
           </Box>
-
           <Heading as="h2" size="md" mb={2}>
             第6条（個人情報の開示）
           </Heading>
@@ -149,7 +145,6 @@ const PrivacyPolicy = () => {
               </ListItem>
             </OrderedList>
           </Box>
-
           <Heading as="h2" size="md" mb={2}>
             第7条（個人情報の訂正および削除）
           </Heading>
@@ -166,23 +161,21 @@ const PrivacyPolicy = () => {
               </ListItem>
             </OrderedList>
           </Box>
-
           {/* <Heading as="h2" size="md" mb={2}>
-        第8条（アクセス分析ツールの利用について）
-      </Heading>
-      <Box mb={4} pl={4}>
-        当サイトでは、サイト利用状況の把握のためにGoogle
-        Analyticsを利用しております。Google
-        Analyticsはトラフィックデータの収集のためにCookieを使用しています。データは匿名で収集されており、個人を特定するものではありません。この機能はブラウザの設定でCookieを無効にすることで拒否することができます。詳細は下記のポリシーをご参照ください。
-        <Link
-          href="https://policies.google.com/technologies/partner-sites"
-          isExternal
-          color="blue.500"
-        >
-          Googleのポリシー
-        </Link>
-      </Box> */}
-
+            第8条（アクセス分析ツールの利用について）
+          </Heading>
+          <Box mb={4} pl={4} zIndex={10}>
+            当サイトでは、サイト利用状況の把握のためにGoogle
+            Analyticsを利用しております。Google
+            Analyticsはトラフィックデータの収集のためにCookieを使用しています。データは匿名で収集されており、個人を特定するものではありません。この機能はブラウザの設定でCookieを無効にすることで拒否することができます。詳細は下記のポリシーをご参照ください。
+            <ChakrLink
+              href="https://policies.google.com/technologies/partner-sites"
+              isExternal
+              color="blue.500"
+            >
+              Googleのポリシー
+            </ChakrLink>
+          </Box> */}
           <Heading as="h2" size="md" mb={2}>
             第8条（個人情報の利用停止等）
           </Heading>
@@ -202,31 +195,96 @@ const PrivacyPolicy = () => {
               </ListItem>
             </OrderedList>
           </Box>
-
           <Heading as="h2" size="md" mb={2}>
-            第9条（プライバシーポリシーの変更）
+            第9条（広告の配信について）
           </Heading>
           <Box mb={4} pl={4}>
-            <OrderedList mb={4} pl={4}>
-              <ListItem>
-                本ポリシーの内容は，法令その他本ポリシーに別段の定めのある事項を除いて，ユーザーに通知することなく，変更することができるものとします。
-              </ListItem>
-              <ListItem>
-                当社が別途定める場合を除いて，変更後のプライバシーポリシーは，本ウェブサイトに掲載したときから効力を生じるものとします。{" "}
-              </ListItem>
-            </OrderedList>
-          </Box>
-
-          <Heading as="h2" size="md" mb={2}>
-            第10条（お問い合わせ）
-          </Heading>
-          <Box mb={4} pl={4}>
-            本ポリシーに関するお問い合わせは、下記の窓口までご連絡ください。
+            当サイトでは、第三者配信の広告サービス
+            <ChakrLink
+              href="https://www.google.co.jp/adsense/start/"
+              isExternal
+              color="blue"
+            >
+              Google Adsense グーグルアドセンス
+            </ChakrLink>
+            を利用しています。このような広告配信事業者は、ユーザーの興味に応じた商品やサービスの広告を表示するため、
+            クッキー（Cookie）を使用しております。
+            クッキーを使用することで当サイトはお客様のコンピュータを識別できるようになりますが、お客様個人を特定できるものではありません。
+            Cookie（クッキー）を無効にする設定およびGoogleアドセンスに関する詳細は
+            <ChakrLink
+              href="https://policies.google.com/technologies/ads?hl=ja"
+              isExternal
+              color="blue"
+            >
+              広告 – ポリシーと規約 – Google
+            </ChakrLink>
+            をご覧ください。
             <br />
-            <Link href="/contactme" color="blue">
-              問い合わせフォーム
-            </Link>
+            注記）クッキー（Cookie）とは：当サイトや他サイトへのアクセスに関する情報で、氏名、住所、メールアドレス、電話番号は含まれていません。
+            <br />
+            {/* また、当サイトは、
+            <ChakrLink href="https://www.amazon.co.jp/" isExternal color="blue">
+              Amazon.co.jp
+            </ChakrLink>
+            を宣伝しリンクすることによってサイトが紹介料を獲得できる手段を提供することを目的に設定されたアフィリエイトプログラムである、Amazonアソシエイトプログラムの参加者です。 */}
+            第三者がコンテンツおよび宣伝を提供し、訪問者から直接情報を収集し、訪問者のブラウザにCookie（クッキー）を設定したりこれを認識したりする場合があります。
           </Box>
+          <Heading as="h2" size="md" mb={2}>
+            第10条（当サイトの免責事項）
+          </Heading>
+          <Box mb={4} pl={4}>
+            当サイトは、アフィリエイトプログラムを使って商品を紹介しており、直接の販売は行っておりません。商品に関するお問い合わせは、販売店様のほうに直接ご連絡くださいますようお願いいたします。当サイトからリンクやバナーなどによって他のサイトに移動された場合、移動先サイトで提供される情報、サービス等について一切の責任を負いません。また、リンク先サイトの正確性や合法性、その内容について一切保証するものではありません。商品やサービスのご購入に関する最終的な判断は、ご自身の責任でお願いいたします。当サイトのコンテンツ・情報につきまして、可能な限り正確な情報を掲載するよう努めておりますが、必ずしもそれらの正確性や安全性等を保証するものではありません。誤情報が入り込んだり、情報が古くなっていることもございます。万が一、当サイトに掲載された内容によって発生したトラブルや損害等の一切の責任を負いかねます。あらかじめご了承くださいますようお願いいたします。また、本免責事項、および当サイトに掲載しているすべてのコンテンツは、予告なしに変更・削除されることがあります。
+            予めご了承下さい。
+          </Box>
+
+          <Heading as="h2" size="md" mb={2}>
+            第11条（著作権・肖像権について）
+          </Heading>
+          <Box mb={4} pl={4}>
+            当サイトで掲載している文章や画像などにつきましては、著作権は放棄しておりません。当サイトに存在する、文章・画像・動画等の著作物の情報を無断転載することを禁止します。引用の範囲を超えるものについては、法的処置を行います。転載を希望される方は、「お問い合わせ」よりご連絡をお願いします。また、当サイトは著作権の侵害を目的とするものではありません。使用している版権物の知的所有権はそれぞれの著作者・団体に帰属しております。著作権や肖像権に関して問題がありましたら御連絡下さい。著作権所有者様からの警告及び修正・撤去のご連絡があった場合は迅速に対処または削除致します。
+          </Box>
+          <Heading as="h2" size="md" mb={2}>
+            第12条（リンクについて）
+          </Heading>
+          <Box mb={4} pl={4}>
+            当サイトは基本的にリンクフリーです。リンクを行う場合の許可や連絡は不要です。ただし、当サイトに掲載されている画像への直リンクや、インラインフレームによる当サイトのコンテンツの使用はご遠慮ください。
+          </Box>
+          <Heading as="h2" size="md" mb={2}>
+            第13条（当サイトのプライバシーポリシー・免責事項の変更について）
+          </Heading>
+          <Box mb={4} pl={4}>
+            当サイトは、個人情報に関して適用される日本の法令を遵守するとともに、本ポリシー及び免責事項の内容を適宜見直しその改善に努めます。修正された最新のプライバシーポリシーと免責事項は常に本ページにて開示されます。
+          </Box>
+          <Heading as="h2" size="md" mb={2}>
+            第12条（お問い合わせ）
+          </Heading>
+          <Box mb={4} pl={4}>
+            本ポリシー・免責事項に関するお問い合わせは、下記の窓口までご連絡ください。
+            <br />
+            <Box color="blue">
+              <Link href="/contactme">問い合わせフォーム</Link>
+            </Box>
+          </Box>
+          <Divider mb={2} />
+          <Heading as="h2" size="sm" mb={2}>
+            当サイトの運営者情報
+          </Heading>
+          <Box mb={4} pl={4}>
+            運営者：Cyanoptilas
+            <br />
+            サイト名：ONE-TAP-SNIPPET
+            <br />
+            サイトURL：http://one-tap-snippet.com/
+          </Box>
+          <Heading as="h2" size="sm" mb={2}>
+            初出掲載日・最終改定日
+          </Heading>
+          <Box mb={4} pl={4}>
+            初出掲載日：2023年9月28日
+            <br />
+            最終改定日：2023年10月20日
+          </Box>
+          <Divider />
         </Box>
       </Box>
     </Layout>
