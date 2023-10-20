@@ -6,16 +6,14 @@ import {
   ListItem,
   OrderedList,
   Divider,
-  Flex,
   Link as ChakrLink,
-  Container,
 } from "@chakra-ui/react";
 import Link from "next/link";
 
 const PrivacyPolicy = () => {
   return (
     <Layout>
-      <Box bg="gray.50">
+      <Box bg="gray.50" mt={2}>
         <Box
           p={6}
           maxW="1200px"
