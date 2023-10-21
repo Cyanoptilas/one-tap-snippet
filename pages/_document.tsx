@@ -18,6 +18,10 @@ class MyDocument extends Document {
             strategy="afterInteractive"
           />
         </Head>
+        <meta
+          name="google-site-verification"
+          content="f_ONqNmOYowRla-ooKXHamNFNxdwsnAI-7bNbY5QIKY"
+        />
         <body>
           <Main />
           <NextScript />
