@@ -7,6 +7,10 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta
+            name="google-site-verification"
+            content="f_ONqNmOYowRla-ooKXHamNFNxdwsnAI-7bNbY5QIKY"
+          />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
@@ -18,10 +22,6 @@ class MyDocument extends Document {
             strategy="afterInteractive"
           />
         </Head>
-        <meta
-          name="google-site-verification"
-          content="f_ONqNmOYowRla-ooKXHamNFNxdwsnAI-7bNbY5QIKY"
-        />
         <body>
           <Main />
           <NextScript />
