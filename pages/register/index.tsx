@@ -22,6 +22,7 @@ import React, { ChangeEvent, KeyboardEvent } from "react";
 import Layout from "@/features/ui/Layout";
 import { useSession } from "next-auth/react";
 import Script from "next/script";
+import { AdsCard } from "@/features/ui/ad/AdCard";
 
 const Home = () => {
   const { data: session } = useSession();
@@ -143,7 +144,7 @@ const Home = () => {
             登録結果画面で処理名、処理説明、タグの修正を行なえます。
           </Text>
         </Box>
-        <Script src="https://adm.shinobi.jp/s/8d595c264fd4df83aaf278d7cbd76db8"></Script>
+        <AdsCard />
         <Box
           bg="white"
           p={2}
