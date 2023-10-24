@@ -144,7 +144,8 @@ const Home = () => {
             登録結果画面で処理名、処理説明、タグの修正を行なえます。
           </Text>
         </Box>
-        <AdsCard />
+        <AdsCard adMaxId="51201e20f99cc4fb6ee72cc7bc373783" />
+        <AdsCard adMaxId="8d595c264fd4df83aaf278d7cbd76db8" />
         <Box
           bg="white"
           p={2}
