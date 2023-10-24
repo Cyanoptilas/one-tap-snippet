@@ -6,8 +6,6 @@ type AdmaxAdType = {
   type: string; // PC/SP切替広告なら"switch"
 };
 
-const key: keyof string;
-
 // PC/SP切替広告のReactコンポーネント
 export const AdsCard: React.FC<{ id: string }> = (props) => {
   useEffect(() => {
