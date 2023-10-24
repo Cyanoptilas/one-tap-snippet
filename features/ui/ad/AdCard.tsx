@@ -33,7 +33,5 @@ export const AdsCard = ({ adMaxId }: { adMaxId: string }) => {
     }
   }, [asPath]);
 
-  return (
-    <Box key={asPath} display="inline-block" data-admax-id={adMaxId}></Box>
-  );
+  return <div key={asPath} className="admax-switch" data-admax-id={adMaxId}></div>;
 };
