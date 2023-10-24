@@ -14,7 +14,7 @@ declare global {
 }
 
 export const AdsCard = (props: Props) => {
-  const adMaxId = "8d595c264fd4df83aaf278d7cbd76db8";
+  const adMaxId = "51201e20f99cc4fb6ee72cc7bc373783";
   // 親コンポーネントでスタイルを設定できるようにする
   const { className, children, ...newProps } = props;
 
