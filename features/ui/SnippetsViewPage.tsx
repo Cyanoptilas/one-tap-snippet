@@ -346,6 +346,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
                 次のページ
               </Button>
             </Flex>
+            <AdsCard adMaxId="5cbd60f9cbc041709048511822290814" />
 
             {isTopPage ? (
               <Tooltip
