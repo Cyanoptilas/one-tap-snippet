@@ -82,7 +82,7 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
 
   const authorName = data?.author?.name ?? "NoName";
 
-  const rootUrl = "https://one-tap-snippet.vercel.app";
+  const rootUrl = process.env.ROOT_URL;
 
   useEffect(() => {
     if (isTagAdded) {
