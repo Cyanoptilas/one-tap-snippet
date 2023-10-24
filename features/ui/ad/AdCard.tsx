@@ -37,7 +37,6 @@ export const AdsCard = (props: Props) => {
     }
   }, [asPath]);
 
-  // スタイルはTailwindを使うことを前提としている
   return (
     <Box
       key={asPath}
