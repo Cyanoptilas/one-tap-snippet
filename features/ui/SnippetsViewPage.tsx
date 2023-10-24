@@ -211,7 +211,9 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
 
   return (
     <>
+      <AdsCard id="51201e20f99cc4fb6ee72cc7bc373783" />
       <AdsCard id="8d595c264fd4df83aaf278d7cbd76db8" />
+      <AdsCard id="5cbd60f9cbc041709048511822290814" />
       <Layout>
         <StatesContext.Provider value={ContextProps}>
           <Container
