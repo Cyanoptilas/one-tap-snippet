@@ -32,6 +32,7 @@ import SortMenu from "@/features/ui/SortMenu";
 import RadioGroupOrder from "@/features/ui/RadioGroupOrder";
 import SnippetCards from "@/features/ui/SnippetCards";
 import SearchBox from "./SearchBox";
+import { AdsCard } from "./ad/AdCard";
 
 interface StatesContextProps {
   isMultiSelectMode: boolean;
@@ -286,6 +287,9 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
               displayedSnippets={displayedSnippets}
               favoriteSnippetIds={favoriteSnippetIds}
             />
+
+            {/* 広告 */}
+            <AdsCard />
 
             {/* 下部ボタンエリア */}
             <Flex
