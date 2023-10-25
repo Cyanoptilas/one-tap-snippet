@@ -32,7 +32,7 @@ import SortMenu from "@/features/ui/SortMenu";
 import RadioGroupOrder from "@/features/ui/RadioGroupOrder";
 import SnippetCards from "@/features/ui/SnippetCards";
 import SearchBox from "./SearchBox";
-import { AdsCard } from "./ad/AdCard";
+import { AdsCard } from "./ad/AdsCard";
 
 interface StatesContextProps {
   isMultiSelectMode: boolean;

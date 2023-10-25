@@ -22,7 +22,7 @@ import React, { ChangeEvent, KeyboardEvent } from "react";
 import Layout from "@/features/ui/Layout";
 import { useSession } from "next-auth/react";
 import Script from "next/script";
-import { AdsCard } from "@/features/ui/ad/AdCard";
+import { AdsCard } from "@/features/ui/ad/AdsCard";
 
 const Home = () => {
   const { data: session } = useSession();
