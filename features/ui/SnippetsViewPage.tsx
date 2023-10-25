@@ -32,7 +32,6 @@ import SortMenu from "@/features/ui/SortMenu";
 import RadioGroupOrder from "@/features/ui/RadioGroupOrder";
 import SnippetCards from "@/features/ui/SnippetCards";
 import SearchBox from "./SearchBox";
-import { AdsCard } from "./ad/AdsCard";
 
 interface StatesContextProps {
   isMultiSelectMode: boolean;
@@ -211,9 +210,6 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
 
   return (
     <>
-      <AdsCard id="51201e20f99cc4fb6ee72cc7bc373783" />
-      <AdsCard id="8d595c264fd4df83aaf278d7cbd76db8" />
-      <AdsCard id="5cbd60f9cbc041709048511822290814" />
       <Layout>
         <StatesContext.Provider value={ContextProps}>
           <Container
@@ -292,10 +288,6 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
                 favoriteSnippetIds={favoriteSnippetIds}
               />
 
-              {/* 広告 */}
-              <AdsCard id="51201e20f99cc4fb6ee72cc7bc373783" />
-              <AdsCard id="8d595c264fd4df83aaf278d7cbd76db8" />
-
               {/* 下部ボタンエリア */}
               <Flex
                 direction="row"
@@ -350,7 +342,6 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
                   次のページ
                 </Button>
               </Flex>
-              <AdsCard id="5cbd60f9cbc041709048511822290814" />
 
               {isTopPage ? (
                 <Tooltip
