@@ -124,7 +124,7 @@ const Home = () => {
       <VStack
         spacing={2}
         paddingX={4}
-        mt={1}
+        mt={2}
         minHeight="92vh"
         bg={bg}
         color={color}
@@ -184,6 +184,11 @@ const Home = () => {
               {isLoading ? <Spinner /> : "登録 (Enterキーで送信)"}
             </Button>
           </Tooltip>
+        </Box>
+
+        {/* admax */}
+        <Box my={2}>
+          <AdsCard id="5cbd60f9cbc041709048511822290814" />
         </Box>
 
         {/* エラーモーダル */}

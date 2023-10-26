@@ -32,6 +32,7 @@ import SortMenu from "@/features/ui/SortMenu";
 import RadioGroupOrder from "@/features/ui/RadioGroupOrder";
 import SnippetCards from "@/features/ui/SnippetCards";
 import SearchBox from "./SearchBox";
+import { AdsCard } from "./ad/AdsCard";
 
 interface StatesContextProps {
   isMultiSelectMode: boolean;
@@ -217,7 +218,7 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
             pt={2}
             position="relative"
             height={{ base: "91vh", md: "92vh", lg: "93vh" }}
-            minHeight={{ base: "880px", md: "810px", lg: "860px" }}
+            minHeight={{ base: "950px", md: "930px", lg: "930px" }}
           >
             <VStack align="center" minHeight="100%">
               {/* 上部操作系表示エリア */}
@@ -289,59 +290,62 @@ function SnippetsViewPage(props: SnippetsViewPageProps) {
               />
 
               {/* 下部ボタンエリア */}
-              <Flex
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-                width="90%"
-                my={0}
-                position="absolute"
-                bottom="1%"
-              >
-                <Button
-                  onClick={() => setPage(page - 1)}
-                  isDisabled={page === 0}
-                  colorScheme="blue"
-                  mr={2}
+              <VStack position="absolute" bottom="1%">
+                <Flex
+                  direction="row"
+                  justifyContent="center"
+                  alignItems="center"
+                  width="90%"
+                  my={0}
                 >
-                  前のページ
-                </Button>
-                {isSmallScreen ? (
-                  <Center
-                    w="50px"
-                    h="30px"
-                    bg="blue.500"
-                    color="white"
-                    borderRadius="md"
+                  <Button
+                    onClick={() => setPage(page - 1)}
+                    isDisabled={page === 0}
+                    colorScheme="blue"
+                    mr={2}
                   >
-                    {page + 1}
-                  </Center>
-                ) : (
-                  Array.from({ length: totalPages }).map((_, idx) => (
+                    前のページ
+                  </Button>
+                  {isSmallScreen ? (
                     <Center
-                      key={idx}
-                      w="45px"
+                      w="50px"
                       h="30px"
-                      bg={page === idx ? "blue.500" : "gray.100"}
-                      color={page === idx ? "white" : "black"}
+                      bg="blue.500"
+                      color="white"
                       borderRadius="md"
-                      mx={1}
-                      cursor="pointer"
-                      onClick={() => setPage(idx)}
                     >
-                      {idx + 1}
+                      {page + 1}
                     </Center>
-                  ))
-                )}
-                <Button
-                  onClick={() => setPage(page + 1)}
-                  isDisabled={page + 1 >= totalPages}
-                  colorScheme="blue"
-                  ml={2}
-                >
-                  次のページ
-                </Button>
-              </Flex>
+                  ) : (
+                    Array.from({ length: totalPages }).map((_, idx) => (
+                      <Center
+                        key={idx}
+                        w="45px"
+                        h="30px"
+                        bg={page === idx ? "blue.500" : "gray.100"}
+                        color={page === idx ? "white" : "black"}
+                        borderRadius="md"
+                        mx={1}
+                        cursor="pointer"
+                        onClick={() => setPage(idx)}
+                      >
+                        {idx + 1}
+                      </Center>
+                    ))
+                  )}
+                  <Button
+                    onClick={() => setPage(page + 1)}
+                    isDisabled={page + 1 >= totalPages}
+                    colorScheme="blue"
+                    ml={2}
+                  >
+                    次のページ
+                  </Button>
+                </Flex>
+                <Flex width="100vw" justifyContent="center">
+                  <AdsCard id="5cbd60f9cbc041709048511822290814" />
+                </Flex>
+              </VStack>
 
               {isTopPage ? (
                 <Tooltip

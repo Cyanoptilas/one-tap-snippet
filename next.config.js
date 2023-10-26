@@ -7,10 +7,6 @@ const nextConfig = {
       "lh3.googleusercontent.com",
       "avatars.githubusercontent.com",
       "images.unsplash.com",
-      process.env.R2_BUCKET_NAME +
-        "." +
-        process.env.R2_ACCOUNT_ID +
-        ".r2.cloudflarestorage.com",
     ],
   },
 };

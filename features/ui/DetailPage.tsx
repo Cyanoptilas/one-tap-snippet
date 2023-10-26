@@ -31,6 +31,7 @@ import Loading from "@/features/ui/Loading";
 import { useSession } from "next-auth/react";
 import ShareButton from "./button/ShareButton";
 import Script from "next/script";
+import { AdsCard } from "./ad/AdsCard";
 
 export interface SnippetDetailData {
   id: string;
@@ -413,7 +414,7 @@ function DetailPage({ snippet }: { snippet: SnippetDetailData }) {
             />
 
             {/* admax */}
-            <Script src="https://adm.shinobi.jp/s/8d595c264fd4df83aaf278d7cbd76db8"></Script>
+            <AdsCard id="5cbd60f9cbc041709048511822290814" />
 
             <Box fontSize={14} position="relative">
               <MarkdownDisplay content={data.markdownCode} />
