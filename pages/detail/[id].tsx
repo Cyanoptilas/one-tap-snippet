@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
-import Layout from "@/features/ui/Layout";
+import Layout from "@/features/components/Layout";
 import prisma from "@/lib/prisma";
-import DetailPage, { SnippetDetailData } from "@/features/ui/DetailPage";
+import DetailPage, { SnippetDetailData } from "@/features/components/DetailPage";
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   if (!params || typeof params.id !== "string") {

@@ -1,4 +1,4 @@
-import Layout from "../../features/ui/Layout";
+import Layout from "../../features/components/Layout";
 import TextareaAutosize from "react-textarea-autosize";
 import {
   Box,
@@ -14,7 +14,7 @@ import { useRef, useState } from "react";
 import Router from "next/router";
 import CustomDialog, {
   CustomDialogProps,
-} from "../../features/ui/CustomDialog";
+} from "../../features/components/CustomDialog";
 
 const ContactMe: React.FC = () => {
   const cancelRef = useRef<HTMLButtonElement>(null);

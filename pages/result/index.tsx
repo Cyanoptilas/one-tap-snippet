@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Layout from "@/features/ui/Layout";
-import Loading from "@/features/ui/Loading";
-import DetailPage, { SnippetDetailData } from "@/features/ui/DetailPage";
+import Layout from "@/features/components/Layout";
+import Loading from "@/features/components/Loading";
+import DetailPage, { SnippetDetailData } from "@/features/components/DetailPage";
 import { useDisclosure } from "@chakra-ui/react";
 import { useSession } from "next-auth/react";
 

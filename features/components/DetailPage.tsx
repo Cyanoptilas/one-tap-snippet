@@ -26,8 +26,8 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
-import MarkdownDisplay from "@/features/ui/MarkdownDisplay";
-import Loading from "@/features/ui/Loading";
+import MarkdownDisplay from "@/features/components/MarkdownDisplay";
+import Loading from "@/features/components/Loading";
 import { useSession } from "next-auth/react";
 import ShareButton from "./button/ShareButton";
 import Script from "next/script";

@@ -1,5 +1,5 @@
 import { signOut, useSession } from "next-auth/react";
-import Layout from "../../features/ui/Layout";
+import Layout from "../../features/components/Layout";
 import {
   Box,
   Heading,

@@ -21,16 +21,16 @@ import React, {
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
-import Layout from "@/features/ui/Layout";
+import Layout from "@/features/components/Layout";
 import {
   AddIcon,
   CloseIcon,
   DeleteIcon,
   QuestionOutlineIcon,
 } from "@chakra-ui/icons";
-import SortMenu from "@/features/ui/SortMenu";
-import RadioGroupOrder from "@/features/ui/RadioGroupOrder";
-import SnippetCards from "@/features/ui/SnippetCards";
+import SortMenu from "@/features/components/SortMenu";
+import RadioGroupOrder from "@/features/components/RadioGroupOrder";
+import SnippetCards from "@/features/components/SnippetCards";
 import SearchBox from "./SearchBox";
 import { AdsCard } from "./ad/AdsCard";
 

@@ -1,4 +1,4 @@
-import Layout from "@/features/ui/Layout";
+import Layout from "@/features/components/Layout";
 import { Box, Heading, List, ListItem, Text, Link } from "@chakra-ui/react";
 
 const TermsOfService = () => {

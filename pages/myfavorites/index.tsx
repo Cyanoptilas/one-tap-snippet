@@ -1,4 +1,4 @@
-import SnippetsViewPage, { Snippet } from "@/features/ui/SnippetsViewPage";
+import SnippetsViewPage, { Snippet } from "@/features/components/SnippetsViewPage";
 import prisma from "@/lib/prisma";
 import { GetServerSidePropsContext } from "next";
 import { getSession } from "next-auth/react";
