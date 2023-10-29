@@ -7,6 +7,7 @@ const nextConfig = {
       "lh3.googleusercontent.com",
       "avatars.githubusercontent.com",
       "images.unsplash.com",
+      process.env.R2_BUCKET,
     ],
   },
 };

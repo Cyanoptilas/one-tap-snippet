@@ -1,7 +1,11 @@
+/* eslint-disable @next/next/no-title-in-document-head */
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
+    const BucketName = process.env.R2_BUCKET;
+    const OgpImage = process.env.R2_OGP_IMAGE;
+
     return (
       <Html lang="ja" prefix="og: http://ogp.me/ns#">
         <Head>
@@ -12,11 +16,17 @@ class MyDocument extends Document {
           />
           <meta name="twitter:card" content="summary_large_image" />
           <meta property="og:title" content="ONE-TAP-SNIPPET" />
-          <meta property="og:description" content="コピペ&Enterでスニペットを簡単登録！"/>
+          <meta
+            property="og:description"
+            content="コピペ&Enterでスニペットを簡単登録！"
+          />
           <meta property="og:url" content="https://one-tap-snippet.com/" />
           <meta property="og:site_name" content="ONE-TAP-SNIPPET" />
           <meta property="og:type" content="website" />
-          <meta property="og:image" content={process.env.R2_OGP_IMAGE} />
+          <meta
+            property="og:image"
+            content={"https://" + `${BucketName}` + "/" + `${OgpImage}`}
+          />
           <meta
             name="google-site-verification"
             content="f_ONqNmOYowRla-ooKXHamNFNxdwsnAI-7bNbY5QIKY"
